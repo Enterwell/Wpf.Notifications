@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://raw.githubusercontent.com/Enterwell/Wpf.Notifications/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/Enterwell/Wpf.Notifications</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>Initial release.</releaseNotes>
+    <copyright>Copyright (c) Enterwell d.o.o. 2017</copyright>
+    <tags>wpf notifications</tags>
+  </metadata>
+</package>
