@@ -8,15 +8,15 @@ _WPF notifications UI controls_
 
 ### Basics
 
-Control `NotificationMessage` is the notification. There are 3 main part to it - a badge, located on the most left, a message in center and buttons on the right for user interaction.
+`NotificationMessage` is the notification control. Three main parts are - badge, located on the most left, message in the center and buttons on the right for user interaction.
 
-The custom button control that is used with notification messages is `NotificaitonMessageButton`. 
+`NotificaitonMessageButton` is button control for user interaction with the notification. 
 
-You can instantiate these control by yourself or use `NotificationMessageFactory` that will do the instantiation for you.
+You can instantiate these control manully or use `NotificationMessageFactory` that will do this for you.
 
-This factory is used by notification message manager. The `NotificationMessageManager` is responsible for queueing and dismissing multiple notification.
+The factory is used by notification message manager - `NotificationMessageManager` which is responsible for queueing and dismissing notifications.
 
-The control that provides support for multiple notification is `NotificationMessageContainer`. You can place this control in your main window, assign the manager and it will handle all notification queue/dismiss operations for you. 
+The UI control that provides support for multiple notifications is `NotificationMessageContainer`. The control can be places in main window, it needs manager to be assigned. It will then handle all notification queue/dismiss operations for you. 
 
 ## Basic usage
 
