@@ -16,7 +16,7 @@ Install from nuget.org feed:
 Install-Package Enterwell.Clients.Wpf.Notifications
 ```
 
-### Basics
+## Basics
 
 `NotificationMessage` is the notification UI control. Three main parts are - badge, located on the most left, message in the center and buttons on the right for user interaction.
 
