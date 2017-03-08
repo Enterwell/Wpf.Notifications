@@ -1,10 +1,20 @@
 # Enterwell Client WPF - Notifications
 _WPF notifications UI controls_
 
+[![NuGet version](https://badge.fury.io/nu/Enterwell.Clients.Wpf.Notifications.svg)](https://badge.fury.io/nu/Enterwell.Clients.Wpf.Notifications)
+
 ## Features
 - Flexible styling 
 - MVVM friendly
 - LINQ like syntax
+
+## Installation
+
+Install from nuget.org feed:
+
+```
+Install-Package Enterwell.Clients.Wpf.Notifications
+```
 
 ### Basics
 
