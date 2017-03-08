@@ -8,7 +8,7 @@ _WPF notifications UI controls_
 
 ### Basics
 
-`NotificationMessage` is the notification control. Three main parts are - badge, located on the most left, message in the center and buttons on the right for user interaction.
+`NotificationMessage` is the notification UI control. Three main parts are - badge, located on the most left, message in the center and buttons on the right for user interaction.
 
 `NotificaitonMessageButton` is button control for user interaction with the notification. 
 
