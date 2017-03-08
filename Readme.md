@@ -32,7 +32,7 @@ this.Manager = new NotificationMessageManager();
 
 ### Simple "info" notification
 
-![Info notification message](docs/images/CaptureNotificationMessageInfo.png)
+![Info notification message](docs/images/CaptureNotificationMessageInfo.PNG)
 
 ```c#
 manager.CreateMessage()
@@ -54,7 +54,7 @@ manager.CreateMessage()
 
 ### Simple "warning" notification
 
-![Warning notification message](docs/images/CaptureNotificationMessageWarning.png)
+![Warning notification message](docs/images/CaptureNotificationMessageWarning.PNG)
 
 ```c#
 manager.CreateMessage()
@@ -71,7 +71,7 @@ manager.CreateMessage()
 
 ### Custom control overlay notification
 
-![Error notificaiton message with progress bar overlay](docs/images/CaptureNotificationMessageError.png)
+![Error notificaiton message with progress bar overlay](docs/images/CaptureNotificationMessageError.PNG)
 
 ```c#
 manager.CreateMessage()
@@ -99,7 +99,7 @@ The `WithOverlay` allows you to set custom overlay content. In this example prog
 
 The `NotificaitonMessageContainer` has build-in support for showing multiple notificaitons at the same time. New notificaiton show at the bottom of the message stack.
 
-![Multiple notificaitons example](docs/images/CaptureNotificationMessageMultiple.png)
+![Multiple notificaitons example](docs/images/CaptureNotificationMessageMultiple.PNG)
 
 ### Don't like extension methods?
 
