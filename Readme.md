@@ -113,7 +113,7 @@ The `NotificaitonMessageContainer` has build-in support for showing multiple not
 
 ### Don't like extension methods?
 
-Extension methods don't hold any complex logic for instantiating notificaitons so you can still build the notification message using just `NotificationMessageBuilder` class directly, without extension methods.
+Extension methods don't hold any complex logic for instantiating notifications so you can still build the notification message using just `NotificationMessageBuilder` class directly, without extension methods.
 
 ```c#
 var builder = NotificationMessageBuilder.CreateMessage();
