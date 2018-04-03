@@ -75,6 +75,16 @@
                 Content="Error message"
                 Style="{StaticResource NotificationMessageButtonStyle}" />
 
+            <Button
+                Margin="8"
+                Padding="12,8"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#1751C3"
+                Click="ButtonBaseInfoDelayOnClick"
+                Content="Info message with delayed dismiss (5s)"
+                Style="{StaticResource NotificationMessageButtonStyle}" />
+
         </StackPanel>
     </Grid>
 </controls1:MetroWindow>
