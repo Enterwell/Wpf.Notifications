@@ -131,30 +131,64 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Marks next button to be dismiss button.
+        /// Marks next button to be dismiss.
         /// This button will dismiss the noitification message when clicked.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <returns>Returns the notiification message builder.</returns>
-        public static NotificationMessageBuilder.DismissNotificationMessageButton Dismiss(
+        public static NotificationMessageBuilder.DismissNotificationMessage Dismiss(
             this NotificationMessageBuilder builder)
         {
-            return new NotificationMessageBuilder.DismissNotificationMessageButton(builder);
+            return new NotificationMessageBuilder.DismissNotificationMessage(builder);
+        }
+
+        /// <summary>
+        /// Dismisses the notification message after specified time.
+        /// </summary>
+        /// <param name="dismiss">The dismiss.</param>
+        /// <param name="delayMilliseconds">The delay in milliseconds.</param>
+        /// <param name="callback">The callback.</param>
+        /// <returns>Returns the notification message builder.</returns>
+        public static NotificationMessageBuilder WithDelay(
+            this NotificationMessageBuilder.DismissNotificationMessage dismiss,
+            int delayMilliseconds,
+            Action<INotificationMessage> callback = null)
+        {
+            dismiss.Builder.Delay(delayMilliseconds, dismiss.Builder.DismissBefore(callback));
+
+            return dismiss.Builder;
+        }
+
+        /// <summary>
+        /// Withes the delay.
+        /// </summary>
+        /// <param name="dismiss">The dismiss.</param>
+        /// <param name="delay">The delay.</param>
+        /// <param name="callback">The callback.</param>
+        /// <returns>Returns the notification message builder.</returns>
+        public static NotificationMessageBuilder WithDelay(
+            this NotificationMessageBuilder.DismissNotificationMessage dismiss,
+            TimeSpan delay,
+            Action<INotificationMessage> callback = null)
+        {
+            dismiss.Builder.Delay(delay, dismiss.Builder.DismissBefore(callback));
+
+            return dismiss.Builder;
         }
 
         /// <summary>
         /// Adds the button to the notification message.
         /// </summary>
-        /// <param name="dismissButton">The dismiss button.</param>
+        /// <param name="dismiss">The dismiss.</param>
         /// <param name="content">The content.</param>
         /// <param name="callback">The callback.</param>
         /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder WithButton(
-            this NotificationMessageBuilder.DismissNotificationMessageButton dismissButton,
+            this NotificationMessageBuilder.DismissNotificationMessage dismiss,
             object content,
             Action<INotificationMessageButton> callback)
         {
-            return dismissButton.Builder.WithButton(content, dismissButton.Builder.DismissBefore(callback));
+            return dismiss.Builder.WithButton(content, dismiss.Builder.DismissBefore(callback));
         }
 
         /// <summary>
@@ -176,6 +210,26 @@ namespace Enterwell.Clients.Wpf.Notifications
             builder.AddButton(button);
 
             return builder;
+        }
+
+        /// <summary>
+        /// Attaches the dismiss action before callback action.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="callback">The callback.</param>
+        /// <returns>
+        /// Returns the action that will call manager dismiss for notification 
+        /// message builder when called and then call the callback action.
+        /// </returns>
+        private static Action<INotificationMessage> DismissBefore(
+            this NotificationMessageBuilder builder,
+            Action<INotificationMessage> callback)
+        {
+            return call =>
+            {
+                builder.Manager.Dismiss(builder.Message);
+                callback?.Invoke(builder.Message);
+            };
         }
 
         /// <summary>

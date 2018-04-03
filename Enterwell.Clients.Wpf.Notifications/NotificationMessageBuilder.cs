@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace Enterwell.Clients.Wpf.Notifications
@@ -111,18 +112,39 @@ namespace Enterwell.Clients.Wpf.Notifications
             return this.Message;
         }
 
+        /// <summary>
+        /// Executes the action after specified delay time.
+        /// </summary>
+        /// <param name="delayMilliseconds">The delay in milliseconds.</param>
+        /// <param name="action">The action.</param>
+        public void Delay(int delayMilliseconds, Action<INotificationMessage> action)
+        {
+            this.Delay(TimeSpan.FromMilliseconds(delayMilliseconds), action);
+        }
+
+        /// <summary>
+        /// Executes the action after specified delay time.
+        /// </summary>
+        /// <param name="delay">The delay.</param>
+        /// <param name="action">The action.</param>
+        public void Delay(TimeSpan delay, Action<INotificationMessage> action)
+        {
+            Task.Delay(delay).ContinueWith(
+                context => action(this.Message),
+                TaskScheduler.FromCurrentSynchronizationContext());
+        }
 
         /// <summary>
         /// The notification message button that is required to dismiss the notification.
         /// </summary>
-        public class DismissNotificationMessageButton
+        public class DismissNotificationMessage
         {
             /// <summary>
-            /// Initializes a new instance of the <see cref="DismissNotificationMessageButton"/> class.
+            /// Initializes a new instance of the <see cref="DismissNotificationMessage"/> class.
             /// </summary>
             /// <param name="builder">The builder.</param>
             /// <exception cref="ArgumentNullException">builder</exception>
-            public DismissNotificationMessageButton(NotificationMessageBuilder builder)
+            public DismissNotificationMessage(NotificationMessageBuilder builder)
             {
                 this.Builder = builder ?? throw new ArgumentNullException(nameof(builder));
             }

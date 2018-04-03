@@ -73,6 +73,20 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                 .Queue();
         }
 
+        private void ButtonBaseInfoDelayOnClick(object sender, RoutedEventArgs e)
+        {
+            this.Manager
+                .CreateMessage()
+                .Accent("#1751C3")
+                .Background("#333")
+                .HasBadge("Info")
+                .HasMessage("Update will be installed on next application restart. This message will be dismissed after 5 seconds.")
+                .Dismiss().WithButton("Update now", button => { })
+                .Dismiss().WithButton("Release notes", button => { })
+                .Dismiss().WithDelay(TimeSpan.FromSeconds(5))
+                .Queue();
+        }
+
         public INotificationMessageManager Manager { get; } = new NotificationMessageManager();
     }
 }
