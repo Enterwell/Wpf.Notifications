@@ -10,8 +10,8 @@
     <projectUrl>https://github.com/Enterwell/Wpf.Notifications</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release.</releaseNotes>
-    <copyright>Copyright (c) Enterwell d.o.o. 2017</copyright>
+    <releaseNotes>Added delayed dismiss method to LINQ builder API.</releaseNotes>
+    <copyright>Copyright (c) Enterwell d.o.o. 2017-2018</copyright>
     <tags>wpf notifications</tags>
   </metadata>
 </package>
