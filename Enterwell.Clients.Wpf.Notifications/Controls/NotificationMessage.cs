@@ -132,6 +132,17 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             get => (string)GetValue(MessageProperty);
             set => SetValue(MessageProperty, value);
         }
+        /// <summary>
+        /// Gets or sets the brush of text.
+        /// <value>
+        /// The text brush.
+        /// </value>
+        /// </summary>
+        public Brush Foreground
+        {
+            get => (Brush)GetValue(ForegroundProperty);
+            set => SetValue(ForegroundProperty, value);
+        }
 
         /// <summary>
         /// Gets or sets the buttons.
@@ -297,6 +308,9 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         public NotificationMessage()
         {
             this.Buttons = new ObservableCollection<object>();
+
+            //Setting the default text color, if not defined by user.
+            this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
         }
     }
 }

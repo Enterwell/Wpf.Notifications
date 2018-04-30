@@ -102,6 +102,14 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
+        /// Sets the text brush.
+        /// </summary>
+        public void SetForeground(Brush brush)
+        {
+            this.Message.Foreground = brush;
+        }
+
+        /// <summary>
         /// Queues the message to manager.
         /// </summary>
         /// <returns>Returns the queued message.</returns>

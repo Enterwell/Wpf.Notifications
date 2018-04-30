@@ -266,5 +266,21 @@ namespace Enterwell.Clients.Wpf.Notifications
 
             return builder;
         }
+
+        /// <summary>
+        /// Sets the foreground brush.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="foregroundBrush">The foreground brush.</param>
+        /// <returns>Returns the noitificaiton message builder.</returns>
+        public static NotificationMessageBuilder Foreground(
+            this NotificationMessageBuilder builder,
+            string foregroundBrush)
+        {
+            var brush = new BrushConverter().ConvertFrom(foregroundBrush) as Brush;
+            builder.SetForeground(brush);
+
+            return builder;
+        }
     }
 }

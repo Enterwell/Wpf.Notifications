@@ -104,5 +104,13 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// The content of the overlay.
         /// </value>
         object OverlayContent { get; set; }
+
+        /// <summary>
+        /// Gets or sets the brush of the text.
+        /// </summary>
+        /// <value>
+        /// The text brush.
+        /// </value>
+        Brush Foreground { get; set; }
     }
 }
