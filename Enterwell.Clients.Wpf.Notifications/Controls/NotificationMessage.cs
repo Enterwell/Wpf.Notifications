@@ -132,17 +132,6 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             get => (string)GetValue(MessageProperty);
             set => SetValue(MessageProperty, value);
         }
-        /// <summary>
-        /// Gets or sets the brush of text.
-        /// <value>
-        /// The text brush.
-        /// </value>
-        /// </summary>
-        public Brush Foreground
-        {
-            get => (Brush)GetValue(ForegroundProperty);
-            set => SetValue(ForegroundProperty, value);
-        }
 
         /// <summary>
         /// Gets or sets the buttons.
