@@ -146,7 +146,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         }
 
         /// <summary>
-        /// Gets or sets whether the message nimates.
+        /// Gets or sets whether the message animates.
         /// </summary>
         /// <value>
         /// Whether or not the message animates.
@@ -157,6 +157,21 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             set => SetValue(AnimatesProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets how long the message animates in seconds.
+        /// </summary>
+        /// <value>
+        /// How long the message animates in seconds.
+        /// </value>
+        public double AnimationDuration
+        {
+            get => (double)GetValue(AnimationDurationProperty);
+            set => SetValue(AnimationDurationProperty, value);
+        }
+
+        /// <summary>
+        /// The animatable element (used for show/hide animations).
+        /// </summary>
         public UIElement AnimatableElement
         {
             get => this;
@@ -303,6 +318,12 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </summary>
         public static readonly DependencyProperty AnimatesProperty =
             DependencyProperty.Register("Animates", typeof(bool), typeof(NotificationMessage), new PropertyMetadata(false));
+
+        /// <summary>
+        /// The animation duration property (in seconds).
+        /// </summary>
+        public static readonly DependencyProperty AnimationDurationProperty =
+            DependencyProperty.Register("AnimationDuration", typeof(double), typeof(NotificationMessage), new PropertyMetadata(0.25));
 
 
         /// <summary>

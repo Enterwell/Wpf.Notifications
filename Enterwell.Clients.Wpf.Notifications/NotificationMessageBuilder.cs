@@ -119,6 +119,15 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
+        /// Sets the duration for the animation in seconds.
+        /// </summary>
+        /// <param name="animates"></param>
+        public void SetAnimationDuration(double duration)
+        {
+            this.Message.AnimationDuration = duration;
+        }
+
+        /// <summary>
         /// Queues the message to manager.
         /// </summary>
         /// <returns>Returns the queued message.</returns>

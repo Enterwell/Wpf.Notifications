@@ -297,5 +297,20 @@ namespace Enterwell.Clients.Wpf.Notifications
 
             return builder;
         }
+
+        /// <summary>
+        /// Sets how long the message animates in seconds.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">How long the message should animate in seconds.</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationDuration(
+            this NotificationMessageBuilder builder,
+            double duration)
+        {
+            builder.SetAnimationDuration(duration);
+
+            return builder;
+        }
     }
 }

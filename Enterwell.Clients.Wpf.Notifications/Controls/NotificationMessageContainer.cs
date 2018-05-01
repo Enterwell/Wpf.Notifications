@@ -86,7 +86,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 {
                     To = 0,
                     BeginTime = TimeSpan.FromSeconds(0),
-                    Duration = TimeSpan.FromSeconds(0.25),
+                    Duration = TimeSpan.FromSeconds(args.Message.AnimationDuration),
                     FillBehavior = FillBehavior.Stop
                 };
                 animation.Completed += (s, a) => this.Items?.Remove(args.Message);
@@ -119,7 +119,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 {
                     To = 1,
                     BeginTime = TimeSpan.FromSeconds(0),
-                    Duration = TimeSpan.FromSeconds(0.25),
+                    Duration = TimeSpan.FromSeconds(args.Message.AnimationDuration),
                     FillBehavior = FillBehavior.Stop
                 };
                 animation.Completed += (s, a) => (args.Message.AnimatableElement as UIElement).Opacity = 1;
