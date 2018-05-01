@@ -282,5 +282,20 @@ namespace Enterwell.Clients.Wpf.Notifications
 
             return builder;
         }
+
+        /// <summary>
+        /// Sets whether or not the message animates.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="animates">Whether or not the message should animate.</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder Animates(
+            this NotificationMessageBuilder builder,
+            bool animates)
+        {
+            builder.SetAnimates(animates);
+
+            return builder;
+        }
     }
 }

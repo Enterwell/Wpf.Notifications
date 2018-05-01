@@ -145,6 +145,18 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             set => SetValue(ButtonsProperty, value);
         }
 
+        /// <summary>
+        /// Gets or sets whether the message nimates.
+        /// </summary>
+        /// <value>
+        /// Whether or not the message animates.
+        /// </value>
+        public bool Animates
+        {
+            get => (bool)GetValue(AnimatesProperty);
+            set => SetValue(AnimatesProperty, value);
+        }
+
         public UIElement AnimatableElement
         {
             get => this;
@@ -285,6 +297,12 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </summary>
         public static readonly DependencyProperty ButtonsProperty =
             DependencyProperty.Register("Buttons", typeof(ObservableCollection<object>), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The animates property.
+        /// </summary>
+        public static readonly DependencyProperty AnimatesProperty =
+            DependencyProperty.Register("Animates", typeof(bool), typeof(NotificationMessage), new PropertyMetadata(false));
 
 
         /// <summary>

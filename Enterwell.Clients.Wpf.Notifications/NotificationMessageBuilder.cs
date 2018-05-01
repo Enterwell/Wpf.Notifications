@@ -110,6 +110,15 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
+        /// Sets whether or not the message animates.
+        /// </summary>
+        /// <param name="animates"></param>
+        public void SetAnimates(bool animates)
+        {
+            this.Message.Animates = animates;
+        }
+
+        /// <summary>
         /// Queues the message to manager.
         /// </summary>
         /// <returns>Returns the queued message.</returns>
