@@ -78,6 +78,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
             this.Manager
                 .CreateMessage()
                 .Accent("#1751C3")
+                .Animates(true)
                 .Background("#333")
                 .HasBadge("Info")
                 .HasMessage("Update will be installed on next application restart. This message will be dismissed after 5 seconds.")

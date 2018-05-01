@@ -82,7 +82,7 @@
                 VerticalAlignment="Top"
                 Background="#1751C3"
                 Click="ButtonBaseInfoDelayOnClick"
-                Content="Info message with delayed dismiss (5s)"
+                Content="Animated info message with delayed dismiss (5s)"
                 Style="{StaticResource NotificationMessageButtonStyle}" />
 
         </StackPanel>
