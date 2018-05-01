@@ -112,5 +112,11 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// The text brush.
         /// </value>
         Brush Foreground { get; set; }
+
+        /// <summary>
+        /// Gets the animatable Message element for add/remove transitions.
+        /// Typically this is the whole Control object.
+        /// </summary>
+        UIElement AnimatableElement { get; }
     }
 }

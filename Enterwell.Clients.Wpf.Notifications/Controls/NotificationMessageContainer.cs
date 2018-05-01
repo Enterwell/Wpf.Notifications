@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace Enterwell.Clients.Wpf.Notifications.Controls
 {
@@ -79,7 +80,16 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            this.Items?.Remove(args.Message);
+            var animation = new DoubleAnimation
+            {
+                To = 0,
+                BeginTime = TimeSpan.FromSeconds(0),
+                Duration = TimeSpan.FromSeconds(0.25),
+                FillBehavior = FillBehavior.Stop
+            };
+            animation.Completed += (s, a) => this.Items?.Remove(args.Message);
+
+            (args.Message.AnimatableElement as UIElement)?.BeginAnimation(UIElement.OpacityProperty, animation);
         }
 
         /// <summary>
@@ -95,6 +105,20 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     "Can't use both ItemsSource and Items collection at the same time.");
 
             this.Items?.Add(args.Message);
+            if (args.Message.AnimatableElement is UIElement)
+            {
+                (args.Message.AnimatableElement as UIElement).Opacity = 0;
+                var animation = new DoubleAnimation
+                {
+                    To = 1,
+                    BeginTime = TimeSpan.FromSeconds(0),
+                    Duration = TimeSpan.FromSeconds(0.25),
+                    FillBehavior = FillBehavior.Stop
+                };
+                animation.Completed += (s, a) => (args.Message.AnimatableElement as UIElement).Opacity = 1;
+
+                (args.Message.AnimatableElement as UIElement)?.BeginAnimation(UIElement.OpacityProperty, animation);
+            }
         }
 
         /// <summary>

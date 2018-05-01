@@ -145,6 +145,11 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             set => SetValue(ButtonsProperty, value);
         }
 
+        public UIElement AnimatableElement
+        {
+            get => this;
+        }
+
         /// <summary>
         /// The overlay content property.
         /// </summary>
