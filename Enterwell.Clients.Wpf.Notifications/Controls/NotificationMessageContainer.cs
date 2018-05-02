@@ -80,23 +80,36 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            if (args.Message.Animates && args.Message.AnimatableElement is UIElement)
+            if ((args.Message is INotificationMessageAnimation))
             {
-                var animation = new DoubleAnimation
+                var animatableMessage = args.Message as INotificationMessageAnimation;
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement is UIElement)
                 {
-                    To = 0,
-                    BeginTime = TimeSpan.FromSeconds(0),
-                    Duration = TimeSpan.FromSeconds(args.Message.AnimationDuration),
-                    FillBehavior = FillBehavior.Stop
-                };
-                animation.Completed += (s, a) => this.Items?.Remove(args.Message);
+                    var animation = new DoubleAnimation
+                    {
+                        To = 0,
+                        BeginTime = TimeSpan.FromSeconds(0),
+                        Duration = TimeSpan.FromSeconds(animatableMessage.AnimationDuration),
+                        FillBehavior = FillBehavior.Stop
+                    };
+                    animation.Completed += (s, a) => RemoveMessage(args.Message);
 
-                (args.Message.AnimatableElement as UIElement)?.BeginAnimation(UIElement.OpacityProperty, animation);
+                    (animatableMessage.AnimatableElement as UIElement).BeginAnimation(UIElement.OpacityProperty, animation);
+                }
+                else
+                {
+                    RemoveMessage(args.Message);
+                }
             }
             else
             {
-                this.Items?.Remove(args.Message);
+                RemoveMessage(args.Message);
             }
+        }
+
+        private void RemoveMessage(INotificationMessage message)
+        {
+            this.Items?.Remove(message);
         }
 
         /// <summary>
@@ -112,19 +125,25 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     "Can't use both ItemsSource and Items collection at the same time.");
 
             this.Items?.Add(args.Message);
-            if (args.Message.Animates && args.Message.AnimatableElement is UIElement)
-            {
-                (args.Message.AnimatableElement as UIElement).Opacity = 0;
-                var animation = new DoubleAnimation
-                {
-                    To = 1,
-                    BeginTime = TimeSpan.FromSeconds(0),
-                    Duration = TimeSpan.FromSeconds(args.Message.AnimationDuration),
-                    FillBehavior = FillBehavior.Stop
-                };
-                animation.Completed += (s, a) => (args.Message.AnimatableElement as UIElement).Opacity = 1;
 
-                (args.Message.AnimatableElement as UIElement).BeginAnimation(UIElement.OpacityProperty, animation);
+            if ((args.Message is INotificationMessageAnimation))
+            {
+                var animatableMessage = args.Message as INotificationMessageAnimation;
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement is UIElement)
+                {
+
+                    (animatableMessage.AnimatableElement as UIElement).Opacity = 0;
+                    var animation = new DoubleAnimation
+                    {
+                        To = 1,
+                        BeginTime = TimeSpan.FromSeconds(0),
+                        Duration = TimeSpan.FromSeconds(animatableMessage.AnimationDuration),
+                        FillBehavior = FillBehavior.Stop
+                    };
+                    animation.Completed += (s, a) => (animatableMessage.AnimatableElement as UIElement).Opacity = 1;
+
+                    (animatableMessage.AnimatableElement as UIElement).BeginAnimation(UIElement.OpacityProperty, animation);
+                }
             }
         }
 

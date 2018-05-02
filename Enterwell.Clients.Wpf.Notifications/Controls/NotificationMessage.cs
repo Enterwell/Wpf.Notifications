@@ -11,7 +11,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
     /// </summary>
     /// <seealso cref="INotificationMessage" />
     /// <seealso cref="Control" />
-    public class NotificationMessage : Control, INotificationMessage
+    public class NotificationMessage : Control, INotificationMessageAnimation
     {
         /// <summary>
         /// Gets or sets the content of the overlay.
