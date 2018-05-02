@@ -115,7 +115,10 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="animates"></param>
         public void SetAnimates(bool animates)
         {
-            this.Message.Animates = animates;
+            if (this.Message is INotificationAnimation)
+            {
+                ((INotificationAnimation)this.Message).Animates = animates;
+            }
         }
 
         /// <summary>
@@ -124,7 +127,10 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="animates"></param>
         public void SetAnimationDuration(double duration)
         {
-            this.Message.AnimationDuration = duration;
+            if (this.Message is INotificationAnimation)
+            {
+                ((INotificationAnimation)this.Message).AnimationDuration = duration;
+            }
         }
 
         /// <summary>

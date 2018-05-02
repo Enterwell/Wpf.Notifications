@@ -58,7 +58,7 @@
     <Compile Include="Controls\NotificationMessageButton.cs" />
     <Compile Include="Controls\NotificationMessageContainer.cs" />
     <Compile Include="INotificationMessage.cs" />
-    <Compile Include="INotificationMessageAnimation.cs" />
+    <Compile Include="INotificationAnimation.cs" />
     <Compile Include="INotificationMessageButton.cs" />
     <Compile Include="INotificationMessageFactory.cs" />
     <Compile Include="INotificationMessageManager.cs" />

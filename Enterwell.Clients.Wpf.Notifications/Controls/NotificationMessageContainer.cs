@@ -80,9 +80,9 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            if (args.Message is INotificationMessageAnimation)
+            if (args.Message is INotificationAnimation)
             {
-                var animatableMessage = args.Message as INotificationMessageAnimation;
+                var animatableMessage = args.Message as INotificationAnimation;
                 if (animatableMessage.Animates && animatableMessage.AnimatableElement != null)
                 {
                     var animation = new DoubleAnimation
@@ -126,9 +126,9 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
 
             this.Items?.Add(args.Message);
 
-            if (args.Message is INotificationMessageAnimation)
+            if (args.Message is INotificationAnimation)
             {
-                var animatableMessage = args.Message as INotificationMessageAnimation;
+                var animatableMessage = args.Message as INotificationAnimation;
                 if (animatableMessage.Animates && animatableMessage.AnimatableElement != null)
                 {
 
