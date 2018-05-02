@@ -211,9 +211,8 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                         To = 1,
                         BeginTime = TimeSpan.FromSeconds(0),
                         Duration = TimeSpan.FromSeconds(AnimationInDuration),
-                        FillBehavior = FillBehavior.Stop
+                        FillBehavior = FillBehavior.HoldEnd
                     };
-                    doubleAnimation.Completed += (s, a) => AnimatableElement.Opacity = 1;
                     return doubleAnimation;
                 }
             }
@@ -241,7 +240,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                         To = 0,
                         BeginTime = TimeSpan.FromSeconds(0),
                         Duration = TimeSpan.FromSeconds(AnimationOutDuration),
-                        FillBehavior = FillBehavior.Stop
+                        FillBehavior = FillBehavior.HoldEnd
                     };
                 }
             }
