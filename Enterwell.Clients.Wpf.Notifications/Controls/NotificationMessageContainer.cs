@@ -80,10 +80,10 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            if ((args.Message is INotificationMessageAnimation))
+            if (args.Message is INotificationMessageAnimation)
             {
                 var animatableMessage = args.Message as INotificationMessageAnimation;
-                if (animatableMessage.Animates && animatableMessage.AnimatableElement is UIElement)
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null)
                 {
                     var animation = new DoubleAnimation
                     {
@@ -94,7 +94,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     };
                     animation.Completed += (s, a) => RemoveMessage(args.Message);
 
-                    (animatableMessage.AnimatableElement as UIElement).BeginAnimation(UIElement.OpacityProperty, animation);
+                    animatableMessage.AnimatableElement.BeginAnimation(UIElement.OpacityProperty, animation);
                 }
                 else
                 {
@@ -126,13 +126,13 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
 
             this.Items?.Add(args.Message);
 
-            if ((args.Message is INotificationMessageAnimation))
+            if (args.Message is INotificationMessageAnimation)
             {
                 var animatableMessage = args.Message as INotificationMessageAnimation;
-                if (animatableMessage.Animates && animatableMessage.AnimatableElement is UIElement)
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null)
                 {
 
-                    (animatableMessage.AnimatableElement as UIElement).Opacity = 0;
+                    animatableMessage.AnimatableElement.Opacity = 0;
                     var animation = new DoubleAnimation
                     {
                         To = 1,
@@ -140,9 +140,9 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                         Duration = TimeSpan.FromSeconds(animatableMessage.AnimationDuration),
                         FillBehavior = FillBehavior.Stop
                     };
-                    animation.Completed += (s, a) => (animatableMessage.AnimatableElement as UIElement).Opacity = 1;
+                    animation.Completed += (s, a) => animatableMessage.AnimatableElement.Opacity = 1;
 
-                    (animatableMessage.AnimatableElement as UIElement).BeginAnimation(UIElement.OpacityProperty, animation);
+                    animatableMessage.AnimatableElement.BeginAnimation(UIElement.OpacityProperty, animation);
                 }
             }
         }
