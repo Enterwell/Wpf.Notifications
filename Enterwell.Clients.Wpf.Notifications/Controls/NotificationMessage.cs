@@ -183,7 +183,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         }
 
         /// <summary>
-        /// The animatable element (used for show/hide animations).
+        /// The animatable element used for show/hide animations.
         /// </summary>
         public UIElement AnimatableElement
         {
@@ -248,6 +248,9 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             set => SetValue(AnimationInProperty, value);
         }
 
+        /// <summary>
+        /// The dependency property on which to animate while animating in.
+        /// </summary>
         public DependencyProperty AnimationInDependencyProperty
         {
             get
@@ -258,6 +261,9 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             set => SetValue(AnimationInDependencyPropProperty, value);
         }
 
+        /// <summary>
+        /// The dependency property on which to animate while animating out.
+        /// </summary>
         public DependencyProperty AnimationOutDependencyProperty
         {
             get

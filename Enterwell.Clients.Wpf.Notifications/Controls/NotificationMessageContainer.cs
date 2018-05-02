@@ -83,21 +83,21 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             if (args.Message is INotificationAnimation)
             {
                 var animatableMessage = args.Message as INotificationAnimation;
+                var animation = animatableMessage.AnimationOut;
                 if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
-                    && animatableMessage.AnimationOut != null && animatableMessage.AnimationOutDependencyProperty != null)
+                    && animation != null && animatableMessage.AnimationOutDependencyProperty != null)
                 {
-                    var animation = animatableMessage.AnimationOut;
-                    animation.Completed += (s, a) => RemoveMessage(args.Message);
+                    animation.Completed += (s, a) => this.RemoveMessage(args.Message);
                     animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationOutDependencyProperty, animation);
                 }
                 else
                 {
-                    RemoveMessage(args.Message);
+                    this.RemoveMessage(args.Message);
                 }
             }
             else
             {
-                RemoveMessage(args.Message);
+                this.RemoveMessage(args.Message);
             }
         }
 
@@ -123,10 +123,10 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             if (args.Message is INotificationAnimation)
             {
                 var animatableMessage = args.Message as INotificationAnimation;
+                var animation = animatableMessage.AnimationIn;
                 if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
-                    && animatableMessage.AnimationIn != null && animatableMessage.AnimationInDependencyProperty != null)
+                    && animation != null && animatableMessage.AnimationInDependencyProperty != null)
                 {
-                    var animation = animatableMessage.AnimationIn;
                     animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationInDependencyProperty, animation);
                 }
             }

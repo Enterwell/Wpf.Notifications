@@ -3,6 +3,10 @@ using System.Windows.Media.Animation;
 
 namespace Enterwell.Clients.Wpf.Notifications
 {
+    /// <summary>
+    /// The animation properties for a notification message or some
+    /// other item.
+    /// </summary>
     interface INotificationAnimation
     {
         /// <summary>
