@@ -244,7 +244,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     };
                 }
             }
-            set => SetValue(AnimationInProperty, value);
+            set => SetValue(AnimationOutProperty, value);
         }
 
         /// <summary>
