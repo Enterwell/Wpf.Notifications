@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Enterwell.Clients.Wpf.Notifications
 {
@@ -130,6 +132,54 @@ namespace Enterwell.Clients.Wpf.Notifications
             if (this.Message is INotificationAnimation)
             {
                 ((INotificationAnimation)this.Message).AnimationDuration = duration;
+            }
+        }
+
+        /// <summary>
+        /// Sets the animation in for the message.
+        /// </summary>
+        /// <param name="animation"></param>
+        public void SetAnimationIn(AnimationTimeline animation)
+        {
+            if (this.Message is INotificationAnimation)
+            {
+                ((INotificationAnimation)this.Message).AnimationIn = animation;
+            }
+        }
+
+        /// <summary>
+        /// Sets the animation out for the message.
+        /// </summary>
+        /// <param name="animation"></param>
+        public void SetAnimationOut(AnimationTimeline animation)
+        {
+            if (this.Message is INotificationAnimation)
+            {
+                ((INotificationAnimation)this.Message).AnimationOut = animation;
+            }
+        }
+
+        /// <summary>
+        /// Sets the animation in dependency property.
+        /// </summary>
+        /// <param name="property"></param>
+        public void SetAnimationInDependencyProperty(DependencyProperty property)
+        {
+            if (this.Message is INotificationAnimation)
+            {
+                ((INotificationAnimation)this.Message).AnimationInDependencyProperty = property;
+            }
+        }
+
+        /// <summary>
+        /// Sets the animation out dependency property.
+        /// </summary>
+        /// <param name="property"></param>
+        public void SetAnimationOutDependencyProperty(DependencyProperty property)
+        {
+            if (this.Message is INotificationAnimation)
+            {
+                ((INotificationAnimation)this.Message).AnimationOutDependencyProperty = property;
             }
         }
 
