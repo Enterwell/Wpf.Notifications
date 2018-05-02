@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Enterwell.Clients.Wpf.Notifications.Controls
 {
@@ -178,6 +179,84 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         }
 
         /// <summary>
+        /// The animation in.
+        /// </summary>
+        public AnimationTimeline AnimationIn
+        {
+            get
+            {
+                var animation = (AnimationTimeline)GetValue(AnimationInProperty);
+                if (animation != null)
+                {
+                    animation.Duration = TimeSpan.FromSeconds(AnimationDuration);
+                    return animation;
+                }
+                else
+                {
+                    var doubleAnimation = new DoubleAnimation
+                    {
+                        From = 0,
+                        To = 1,
+                        BeginTime = TimeSpan.FromSeconds(0),
+                        Duration = TimeSpan.FromSeconds(AnimationDuration),
+                        FillBehavior = FillBehavior.Stop
+                    };
+                    doubleAnimation.Completed += (s, a) => AnimatableElement.Opacity = 1;
+                    return doubleAnimation;
+                }
+            }
+            set => SetValue(AnimationInProperty, value);
+        }
+
+        /// <summary>
+        /// The animation out.
+        /// </summary>
+        public AnimationTimeline AnimationOut
+        {
+            get
+            {
+                var animation = (AnimationTimeline)GetValue(AnimationOutProperty);
+                if (animation != null)
+                {
+                    animation.Duration = TimeSpan.FromSeconds(AnimationDuration);
+                    return animation;
+                }
+                else
+                {
+                    return new DoubleAnimation
+                    {
+                        From = 1,
+                        To = 0,
+                        BeginTime = TimeSpan.FromSeconds(0),
+                        Duration = TimeSpan.FromSeconds(AnimationDuration),
+                        FillBehavior = FillBehavior.Stop
+                    };
+                }
+            }
+            set => SetValue(AnimationInProperty, value);
+        }
+
+        public DependencyProperty AnimationInDependencyProperty
+        {
+            get
+            {
+                var property = (DependencyProperty)GetValue(AnimationInDependencyPropProperty);
+                return property ?? UIElement.OpacityProperty;
+            }
+            set => SetValue(AnimationInDependencyPropProperty, value);
+        }
+
+        public DependencyProperty AnimationOutDependencyProperty
+        {
+            get
+            {
+                var property = (DependencyProperty)GetValue(AnimationOutDependencyPropProperty);
+                return property ?? UIElement.OpacityProperty;
+            }
+            set => SetValue(AnimationOutDependencyPropProperty, value);
+        }
+
+        /// <summary>
         /// The overlay content property.
         /// </summary>
         public static readonly DependencyProperty OverlayContentProperty =
@@ -324,6 +403,30 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </summary>
         public static readonly DependencyProperty AnimationDurationProperty =
             DependencyProperty.Register("AnimationDuration", typeof(double), typeof(NotificationMessage), new PropertyMetadata(0.25));
+
+        /// <summary>
+        /// The animation in property.
+        /// </summary>
+        public static readonly DependencyProperty AnimationInProperty =
+            DependencyProperty.Register("AnimationIn", typeof(AnimationTimeline), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The animation out property.
+        /// </summary>
+        public static readonly DependencyProperty AnimationOutProperty =
+            DependencyProperty.Register("AnimationOut", typeof(AnimationTimeline), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The animation in dependency property.
+        /// </summary>
+        public static readonly DependencyProperty AnimationInDependencyPropProperty =
+            DependencyProperty.Register("AnimationInDependencyProperty", typeof(DependencyProperty), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The animation out dependency property.
+        /// </summary>
+        public static readonly DependencyProperty AnimationOutDependencyPropProperty =
+            DependencyProperty.Register("AnimationOutDependencyProperty", typeof(DependencyProperty), typeof(NotificationMessage), new PropertyMetadata(null));
 
 
         /// <summary>

@@ -83,18 +83,12 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             if (args.Message is INotificationAnimation)
             {
                 var animatableMessage = args.Message as INotificationAnimation;
-                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null)
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
+                    && animatableMessage.AnimationOut != null && animatableMessage.AnimationOutDependencyProperty != null)
                 {
-                    var animation = new DoubleAnimation
-                    {
-                        To = 0,
-                        BeginTime = TimeSpan.FromSeconds(0),
-                        Duration = TimeSpan.FromSeconds(animatableMessage.AnimationDuration),
-                        FillBehavior = FillBehavior.Stop
-                    };
+                    var animation = animatableMessage.AnimationOut;
                     animation.Completed += (s, a) => RemoveMessage(args.Message);
-
-                    animatableMessage.AnimatableElement.BeginAnimation(UIElement.OpacityProperty, animation);
+                    animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationOutDependencyProperty, animation);
                 }
                 else
                 {
@@ -129,20 +123,11 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             if (args.Message is INotificationAnimation)
             {
                 var animatableMessage = args.Message as INotificationAnimation;
-                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null)
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
+                    && animatableMessage.AnimationIn != null && animatableMessage.AnimationInDependencyProperty != null)
                 {
-
-                    animatableMessage.AnimatableElement.Opacity = 0;
-                    var animation = new DoubleAnimation
-                    {
-                        To = 1,
-                        BeginTime = TimeSpan.FromSeconds(0),
-                        Duration = TimeSpan.FromSeconds(animatableMessage.AnimationDuration),
-                        FillBehavior = FillBehavior.Stop
-                    };
-                    animation.Completed += (s, a) => animatableMessage.AnimatableElement.Opacity = 1;
-
-                    animatableMessage.AnimatableElement.BeginAnimation(UIElement.OpacityProperty, animation);
+                    var animation = animatableMessage.AnimationIn;
+                    animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationInDependencyProperty, animation);
                 }
             }
         }
