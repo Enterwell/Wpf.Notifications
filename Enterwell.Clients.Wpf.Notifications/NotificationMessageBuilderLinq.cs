@@ -301,16 +301,31 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Sets how long the message animates in seconds.
+        /// Sets how long the message animates in (in seconds).
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="duration">How long the message should animate in seconds.</param>
+        /// <param name="duration">How long the message should animate in (in seconds).</param>
         /// <returns></returns>
-        public static NotificationMessageBuilder AnimationDuration(
+        public static NotificationMessageBuilder AnimationInDuration(
             this NotificationMessageBuilder builder,
             double duration)
         {
-            builder.SetAnimationDuration(duration);
+            builder.SetAnimationInDuration(duration);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets how long the message animates out (in seconds).
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">How long the message should animate out (in seconds).</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationOutDuration(
+            this NotificationMessageBuilder builder,
+            double duration)
+        {
+            builder.SetAnimationOutDuration(duration);
 
             return builder;
         }

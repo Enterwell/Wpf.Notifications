@@ -11,9 +11,14 @@ namespace Enterwell.Clients.Wpf.Notifications
         bool Animates { get; set; }
 
         /// <summary>
-        /// Gets or sets the animation duration.
+        /// Gets or sets the animation in duration (in seconds).
         /// </summary>
-        double AnimationDuration { get; set; }
+        double AnimationInDuration { get; set; }
+
+        /// <summary>
+        /// Gets or sets the animation out duration (in seconds).
+        /// </summary>
+        double AnimationOutDuration { get; set; }
 
         /// <summary>
         /// Gets or sets the animation in.

@@ -159,15 +159,27 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         }
 
         /// <summary>
-        /// Gets or sets how long the message animates in seconds.
+        /// Gets or sets how long the message animates in (in seconds).
         /// </summary>
         /// <value>
-        /// How long the message animates in seconds.
+        /// How long the message animates in (in seconds).
         /// </value>
-        public double AnimationDuration
+        public double AnimationInDuration
         {
-            get => (double)GetValue(AnimationDurationProperty);
-            set => SetValue(AnimationDurationProperty, value);
+            get => (double)GetValue(AnimationInDurationProperty);
+            set => SetValue(AnimationInDurationProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets how long the message animates out (in seconds).
+        /// </summary>
+        /// <value>
+        /// How long the message animates out (in seconds).
+        /// </value>
+        public double AnimationOutDuration
+        {
+            get => (double)GetValue(AnimationOutDurationProperty);
+            set => SetValue(AnimationOutDurationProperty, value);
         }
 
         /// <summary>
@@ -188,7 +200,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 var animation = (AnimationTimeline)GetValue(AnimationInProperty);
                 if (animation != null)
                 {
-                    animation.Duration = TimeSpan.FromSeconds(AnimationDuration);
+                    animation.Duration = TimeSpan.FromSeconds(AnimationInDuration);
                     return animation;
                 }
                 else
@@ -198,7 +210,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                         From = 0,
                         To = 1,
                         BeginTime = TimeSpan.FromSeconds(0),
-                        Duration = TimeSpan.FromSeconds(AnimationDuration),
+                        Duration = TimeSpan.FromSeconds(AnimationInDuration),
                         FillBehavior = FillBehavior.Stop
                     };
                     doubleAnimation.Completed += (s, a) => AnimatableElement.Opacity = 1;
@@ -218,7 +230,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 var animation = (AnimationTimeline)GetValue(AnimationOutProperty);
                 if (animation != null)
                 {
-                    animation.Duration = TimeSpan.FromSeconds(AnimationDuration);
+                    animation.Duration = TimeSpan.FromSeconds(AnimationOutDuration);
                     return animation;
                 }
                 else
@@ -228,7 +240,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                         From = 1,
                         To = 0,
                         BeginTime = TimeSpan.FromSeconds(0),
-                        Duration = TimeSpan.FromSeconds(AnimationDuration),
+                        Duration = TimeSpan.FromSeconds(AnimationOutDuration),
                         FillBehavior = FillBehavior.Stop
                     };
                 }
@@ -399,10 +411,16 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             DependencyProperty.Register("Animates", typeof(bool), typeof(NotificationMessage), new PropertyMetadata(false));
 
         /// <summary>
-        /// The animation duration property (in seconds).
+        /// The animation in duration property (in seconds).
         /// </summary>
-        public static readonly DependencyProperty AnimationDurationProperty =
-            DependencyProperty.Register("AnimationDuration", typeof(double), typeof(NotificationMessage), new PropertyMetadata(0.25));
+        public static readonly DependencyProperty AnimationInDurationProperty =
+            DependencyProperty.Register("AnimationInDuration", typeof(double), typeof(NotificationMessage), new PropertyMetadata(0.25));
+
+        /// <summary>
+        /// The animation out duration property (in seconds).
+        /// </summary>
+        public static readonly DependencyProperty AnimationOutDurationProperty =
+            DependencyProperty.Register("AnimationOutDuration", typeof(double), typeof(NotificationMessage), new PropertyMetadata(0.25));
 
         /// <summary>
         /// The animation in property.

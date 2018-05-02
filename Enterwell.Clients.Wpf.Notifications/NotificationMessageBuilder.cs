@@ -124,14 +124,26 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Sets the duration for the animation in seconds.
+        /// Sets the duration for the animation in (in seconds).
         /// </summary>
         /// <param name="animates"></param>
-        public void SetAnimationDuration(double duration)
+        public void SetAnimationInDuration(double duration)
         {
             if (this.Message is INotificationAnimation)
             {
-                ((INotificationAnimation)this.Message).AnimationDuration = duration;
+                ((INotificationAnimation)this.Message).AnimationInDuration = duration;
+            }
+        }
+
+        /// <summary>
+        /// Sets the duration for the animation out (in seconds).
+        /// </summary>
+        /// <param name="animates"></param>
+        public void SetAnimationOutDuration(double duration)
+        {
+            if (this.Message is INotificationAnimation)
+            {
+                ((INotificationAnimation)this.Message).AnimationOutDuration = duration;
             }
         }
 
