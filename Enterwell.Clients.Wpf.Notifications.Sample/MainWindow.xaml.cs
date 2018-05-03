@@ -18,8 +18,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
         /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
-
+            this.InitializeComponent();
             this.DataContext = this;
         }
 
@@ -90,6 +89,12 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                 .Queue();
         }
 
+        /// <summary>
+        /// Gets the notification message manager.
+        /// </summary>
+        /// <value>
+        /// The notification message manager.
+        /// </value>
         public INotificationMessageManager Manager { get; } = new NotificationMessageManager();
     }
 }
