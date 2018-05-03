@@ -18,8 +18,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
         /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
-
+            this.InitializeComponent();
             this.DataContext = this;
         }
 
@@ -78,6 +77,9 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
             this.Manager
                 .CreateMessage()
                 .Accent("#1751C3")
+                .Animates(true)
+                .AnimationInDuration(0.75)
+                .AnimationOutDuration(2)
                 .Background("#333")
                 .HasBadge("Info")
                 .HasMessage("Update will be installed on next application restart. This message will be dismissed after 5 seconds.")
@@ -87,6 +89,12 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                 .Queue();
         }
 
+        /// <summary>
+        /// Gets the notification message manager.
+        /// </summary>
+        /// <value>
+        /// The notification message manager.
+        /// </value>
         public INotificationMessageManager Manager { get; } = new NotificationMessageManager();
     }
 }

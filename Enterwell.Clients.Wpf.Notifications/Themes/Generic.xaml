@@ -186,26 +186,21 @@
                 <ControlTemplate TargetType="{x:Type controls:NotificationMessageContainer}">
                     <Grid>
                         <Border
-                            Margin="12,0,12,12"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch"
-                            Background="Black">
-                            <Border.Effect>
-                                <DropShadowEffect
-                                    BlurRadius="10"
-                                    Direction="270"
-                                    Opacity="0.3"
-                                    Color="Black" />
-                            </Border.Effect>
-                        </Border>
-                        <Border
                             x:Name="ItemsBorder"
                             Margin="12,0,12,12"
                             Padding="{TemplateBinding Padding}"
                             Background="{TemplateBinding Background}"
                             SnapsToDevicePixels="true"
                             UseLayoutRounding="True">
-                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <ItemsPresenter.Effect>
+                                    <DropShadowEffect
+                                        BlurRadius="10"
+                                        Direction="270"
+                                        Opacity="0.3"
+                                        Color="Black" />
+                                </ItemsPresenter.Effect>
+                            </ItemsPresenter>
                         </Border>
                     </Grid>
                 </ControlTemplate>

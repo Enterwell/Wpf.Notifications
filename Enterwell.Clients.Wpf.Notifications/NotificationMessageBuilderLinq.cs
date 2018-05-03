@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 
 namespace Enterwell.Clients.Wpf.Notifications
 {
@@ -279,6 +281,111 @@ namespace Enterwell.Clients.Wpf.Notifications
         {
             var brush = new BrushConverter().ConvertFrom(foregroundBrush) as Brush;
             builder.SetForeground(brush);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets whether or not the message animates.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="animates">Whether or not the message should animate.</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder Animates(
+            this NotificationMessageBuilder builder,
+            bool animates)
+        {
+            builder.SetAnimates(animates);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets how long the message animates in (in seconds).
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">How long the message should animate in (in seconds).</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationInDuration(
+            this NotificationMessageBuilder builder,
+            double duration)
+        {
+            builder.SetAnimationInDuration(duration);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets how long the message animates out (in seconds).
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">How long the message should animate out (in seconds).</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationOutDuration(
+            this NotificationMessageBuilder builder,
+            double duration)
+        {
+            builder.SetAnimationOutDuration(duration);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets the animation in for the message.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">The message animation in.</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationIn(
+            this NotificationMessageBuilder builder,
+            AnimationTimeline animation)
+        {
+            builder.SetAnimationIn(animation);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets the animation out for the message.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">The message animation out.</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationOut(
+            this NotificationMessageBuilder builder,
+            AnimationTimeline animation)
+        {
+            builder.SetAnimationOut(animation);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets the animation in dependency property for the message.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">The animation in dependency property.</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationInDependencyProperty(
+            this NotificationMessageBuilder builder,
+            DependencyProperty property)
+        {
+            builder.SetAnimationInDependencyProperty(property);
+
+            return builder;
+        }
+
+        /// <summary>
+        /// Sets the animation out dependency property for the message.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="duration">The animation out dependency property.</param>
+        /// <returns></returns>
+        public static NotificationMessageBuilder AnimationOutDependencyProperty(
+            this NotificationMessageBuilder builder,
+            DependencyProperty property)
+        {
+            builder.SetAnimationOutDependencyProperty(property);
 
             return builder;
         }

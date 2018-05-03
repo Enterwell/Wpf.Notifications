@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Enterwell/Wpf.Notifications</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Added support for setting custom text color with `Foreground` method.</releaseNotes>
+    <releaseNotes>Added notification fade-out and fade-in animations.</releaseNotes>
     <copyright>Copyright (c) Enterwell d.o.o. 2017-2018</copyright>
     <tags>wpf notifications</tags>
   </metadata>

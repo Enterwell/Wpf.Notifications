@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
 
 namespace Enterwell.Clients.Wpf.Notifications.Controls
 {
@@ -79,7 +80,30 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            this.Items?.Remove(args.Message);
+            if (args.Message is INotificationAnimation)
+            {
+                var animatableMessage = args.Message as INotificationAnimation;
+                var animation = animatableMessage.AnimationOut;
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
+                    && animation != null && animatableMessage.AnimationOutDependencyProperty != null)
+                {
+                    animation.Completed += (s, a) => this.RemoveMessage(args.Message);
+                    animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationOutDependencyProperty, animation);
+                }
+                else
+                {
+                    this.RemoveMessage(args.Message);
+                }
+            }
+            else
+            {
+                this.RemoveMessage(args.Message);
+            }
+        }
+
+        private void RemoveMessage(INotificationMessage message)
+        {
+            this.Items?.Remove(message);
         }
 
         /// <summary>
@@ -95,6 +119,17 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     "Can't use both ItemsSource and Items collection at the same time.");
 
             this.Items?.Add(args.Message);
+
+            if (args.Message is INotificationAnimation)
+            {
+                var animatableMessage = args.Message as INotificationAnimation;
+                var animation = animatableMessage.AnimationIn;
+                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
+                    && animation != null && animatableMessage.AnimationInDependencyProperty != null)
+                {
+                    animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationInDependencyProperty, animation);
+                }
+            }
         }
 
         /// <summary>

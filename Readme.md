@@ -77,6 +77,17 @@ manager.CreateMessage()
        .Queue();
 ```
 
+### Enable notification message animations (_opt-in feature_)
+
+```c#
+manager
+    ...
+    .Animates(true)
+    .AnimationInDuration(0.75)
+    .AnimationOutDuration(2)
+    ...
+```
+
 ## Advanced usage
 
 ### Custom control overlay notification
