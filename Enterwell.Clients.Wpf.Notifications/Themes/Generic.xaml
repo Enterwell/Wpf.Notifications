@@ -1,69 +1,64 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="clr-namespace:Enterwell.Clients.Wpf.Notifications.Controls"
-    xmlns:local="clr-namespace:Enterwell.Clients.Wpf.Notifications">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Enterwell.Clients.Wpf.Notifications.Controls"
+                    xmlns:local="clr-namespace:Enterwell.Clients.Wpf.Notifications">
 
     <SolidColorBrush x:Key="NotificationButtonDarkBackgroundOverlayBrush">#333333</SolidColorBrush>
     <SolidColorBrush x:Key="NotificationButtonDarkBackgroundOverlayPressedBrush">#666666</SolidColorBrush>
     <SolidColorBrush x:Key="NotificationButtonDarkBackgroundOverlayDisabledBrush">#FFFFFF</SolidColorBrush>
 
     <Style x:Key="NotificationBadgeBaseStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="Margin" Value="10,2,0,2" />
         <Setter Property="Padding" Value="4,2" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="11" />
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
     <Style x:Key="NotificationHeaderTextStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="Foreground" Value="White" />
-        <Setter Property="FontWeight" Value="Light" />
         <Setter Property="FontSize" Value="16" />
+        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:NotificationMessage}}, Path=Foreground}" />
         <Setter Property="Margin" Value="0,0,8,0" />
         <Setter Property="TextWrapping" Value="Wrap" />
     </Style>
 
     <Style x:Key="NotificationMessageTextStyle" TargetType="{x:Type TextBlock}">
-        <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:NotificationMessage}}, Path=Foreground}" />
-        <Setter Property="TextWrapping" Value="Wrap" />
         <Setter Property="Margin" Value="0,0,8,0" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="VerticalAlignment" Value="Center" />
     </Style>
 
     <Style x:Key="NotificationMessageButtonStyle" TargetType="{x:Type Button}">
         <Setter Property="Foreground" Value="#EAEAEA" />
-        <Setter Property="Padding" Value="12,2" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="12,2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Border
-                            x:Name="backgroundBorder"
-                            Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding Background}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            SnapsToDevicePixels="True" />
-                        <Border
-                            x:Name="backgroundOverlay"
-                            BorderThickness="0"
-                            Opacity="0.3"
-                            SnapsToDevicePixels="True" />
-                        <ContentPresenter
-                            x:Name="contentPresenter"
-                            Margin="{TemplateBinding Padding}"
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding Content}"
-                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            Focusable="False"
-                            RecognizesAccessKey="True"
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Border x:Name="backgroundBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                SnapsToDevicePixels="True" />
+                        <Border x:Name="backgroundOverlay"
+                                BorderThickness="0"
+                                Opacity="0.3"
+                                SnapsToDevicePixels="True" />
+                        <ContentPresenter x:Name="contentPresenter"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Focusable="False"
+                                          RecognizesAccessKey="True"
+                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Button.IsDefaulted" Value="True">
@@ -82,20 +77,20 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="VerticalContentAlignment" Value="Center" />
     </Style>
 
     <Style TargetType="{x:Type controls:NotificationMessage}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:NotificationMessage}">
-                    <Border
-                        MinHeight="35"
-                        VerticalAlignment="Top"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="#882F2F2F"
-                        BorderThickness="0,0,0,1"
-                        SnapsToDevicePixels="True"
-                        UseLayoutRounding="True">
+                    <Border MinHeight="35"
+                            VerticalAlignment="Top"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="#882F2F2F"
+                            BorderThickness="0,0,0,1"
+                            SnapsToDevicePixels="True"
+                            UseLayoutRounding="True">
                         <Grid>
                             <Grid.Resources>
                                 <!--  Accent button style  -->
@@ -103,10 +98,9 @@
                                     <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:NotificationMessage}}, Path=ButtonAccentBrush}" />
                                 </Style>
                                 <!--  Accent badge style  -->
-                                <Style
-                                    x:Key="NotificationBadgeAccentStyle"
-                                    BasedOn="{StaticResource NotificationBadgeBaseStyle}"
-                                    TargetType="{x:Type TextBlock}">
+                                <Style x:Key="NotificationBadgeAccentStyle"
+                                       BasedOn="{StaticResource NotificationBadgeBaseStyle}"
+                                       TargetType="{x:Type TextBlock}">
                                     <Setter Property="Background" Value="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type controls:NotificationMessage}}, Path=BadgeAccentBrush}" />
                                 </Style>
                             </Grid.Resources>
@@ -117,11 +111,17 @@
                             </Grid.ColumnDefinitions>
 
                             <!--  Badge  -->
-                            <TextBlock
-                                Grid.Column="0"
-                                Style="{StaticResource NotificationBadgeAccentStyle}"
-                                Text="{TemplateBinding BadgeText}"
-                                Visibility="{TemplateBinding BadgeVisibility}" />
+                            <TextBlock Grid.Column="0"
+                                       Style="{StaticResource NotificationBadgeAccentStyle}"
+                                       Text="{TemplateBinding BadgeText}"
+                                       Visibility="{TemplateBinding BadgeVisibility}" />
+
+                            <!--  Overlay content  -->
+                            <ContentControl Grid.Column="0"
+                                            Grid.ColumnSpan="3"
+                                            HorizontalAlignment="Stretch"
+                                            VerticalAlignment="Stretch"
+                                            Content="{TemplateBinding OverlayContent}" />
 
                             <!--  Header and message  -->
                             <Grid Grid.Column="1" Margin="10,8">
@@ -130,17 +130,15 @@
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
 
-                                <TextBlock
-                                    Grid.Row="0"
-                                    Style="{StaticResource NotificationHeaderTextStyle}"
-                                    Text="{TemplateBinding Header}"
-                                    Visibility="{TemplateBinding HeaderVisibility}" />
+                                <TextBlock Grid.Row="0"
+                                           Style="{StaticResource NotificationHeaderTextStyle}"
+                                           Text="{TemplateBinding Header}"
+                                           Visibility="{TemplateBinding HeaderVisibility}" />
 
-                                <TextBlock
-                                    Grid.Row="1"
-                                    Style="{StaticResource NotificationMessageTextStyle}"
-                                    Text="{TemplateBinding Message}"
-                                    Visibility="{TemplateBinding MessageVisibility}" />
+                                <TextBlock Grid.Row="1"
+                                           Style="{StaticResource NotificationMessageTextStyle}"
+                                           Text="{TemplateBinding Message}"
+                                           Visibility="{TemplateBinding MessageVisibility}" />
                             </Grid>
 
                             <!--  Buttons  -->
@@ -156,14 +154,6 @@
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
-
-                            <!--  Overlay content  -->
-                            <ContentControl
-                                Grid.Column="0"
-                                Grid.ColumnSpan="3"
-                                HorizontalAlignment="Stretch"
-                                VerticalAlignment="Stretch"
-                                Content="{TemplateBinding OverlayContent}" />
                         </Grid>
                     </Border>
                 </ControlTemplate>
@@ -180,25 +170,22 @@
             </Setter.Value>
         </Setter>
         <Setter Property="SnapsToDevicePixels" Value="True" />
-        <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type controls:NotificationMessageContainer}">
                     <Grid>
-                        <Border
-                            x:Name="ItemsBorder"
-                            Margin="12,0,12,12"
-                            Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
-                            SnapsToDevicePixels="true"
-                            UseLayoutRounding="True">
+                        <Border x:Name="ItemsBorder"
+                                Margin="12,0,12,12"
+                                Padding="{TemplateBinding Padding}"
+                                Background="{TemplateBinding Background}"
+                                SnapsToDevicePixels="true"
+                                UseLayoutRounding="True">
                             <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                                 <ItemsPresenter.Effect>
-                                    <DropShadowEffect
-                                        BlurRadius="10"
-                                        Direction="270"
-                                        Opacity="0.3"
-                                        Color="Black" />
+                                    <DropShadowEffect BlurRadius="10"
+                                                      Direction="270"
+                                                      Opacity="0.3"
+                                                      Color="Black" />
                                 </ItemsPresenter.Effect>
                             </ItemsPresenter>
                         </Border>
@@ -206,5 +193,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="VerticalAlignment" Value="Top" />
     </Style>
 </ResourceDictionary>
