@@ -20,13 +20,13 @@ Install-Package Enterwell.Clients.Wpf.Notifications
 
 `NotificationMessage` is the notification UI control. Three main parts are - badge, located on the most left, message in the center and buttons on the right for user interaction.
 
-`NotificaitonMessageButton` is button control for user interaction with the notification. 
+`NotificationMessageButton` is button control for user interaction with the notification. 
 
-You can instantiate these control manully or use `NotificationMessageFactory` that will do this for you.
+You can instantiate these controls manually or use `NotificationMessageFactory` that will do this for you.
 
 The factory is used by notification message manager - `NotificationMessageManager` which is responsible for queueing and dismissing notifications.
 
-The UI control that provides support for multiple notifications is `NotificationMessageContainer`. The control can be places in main window, it needs manager to be assigned. It will then handle all notification queue/dismiss operations for you. 
+The UI control that provides support for multiple notifications is `NotificationMessageContainer`. This control can be placed in the main window, and it needs manager to be assigned. It will then handle all notification queue/dismiss operations for you. 
 
 ## Basic usage
 
@@ -58,7 +58,7 @@ manager.CreateMessage()
 
 `CreateMessage` on manager creates an empty notification message. We then set the accent and background brushes. `HasBadge` and `HasMessage` will populate the notification badge and message content.
 
-`WithButton` will create an button with specified content (content doesn't have to be string) and specified action callback when clicked. If you place `Dismiss` before `WithButton`, your button callback will be intercepted by dismiss notification action first - the notification will be dismissed on user input.
+`WithButton` will create a button with the specified content (content doesn't have to be string) and specified action callback when clicked. If you place `Dismiss` before `WithButton`, your button callback will be intercepted by dismiss notification action first - the notification will be dismissed on user input.
 
 `Queue` will enqueue the message. This will propagate the message to notification message container control which will then show the message (when multiple messages are displayed, new messages are queued to bottom of the stack)
 
@@ -92,7 +92,7 @@ manager
 
 ### Custom control overlay notification
 
-![Error notificaiton message with progress bar overlay](docs/images/CaptureNotificationMessageError.PNG)
+![Error notification message with progress bar overlay](docs/images/CaptureNotificationMessageError.PNG)
 
 ```c#
 manager.CreateMessage()
@@ -114,13 +114,13 @@ manager.CreateMessage()
        .Queue();
 ```
 
-The `WithOverlay` allows you to set custom overlay content. In this example progress bar is placed on the bottom of notification control. Notice the `IsHitTextVisible` is set to `false` so that notification message buttons don't lose focus due to overlay control being over the bottom part of the buttons.
+The `WithOverlay` allows you to set custom overlay content. In this example a progress bar is placed on the bottom of notification control. Notice the `IsHitTextVisible` is set to `false` so that notification message buttons don't lose focus due to overlay control being over the bottom part of the buttons.
 
 ### Multiple notification
 
-The `NotificaitonMessageContainer` has build-in support for showing multiple notificaitons at the same time. New notificaiton show at the bottom of the message stack.
+The `NotificationMessageContainer` has build-in support for showing multiple notifications at the same time. New notifications will show at the bottom of the message stack.
 
-![Multiple notificaitons example](docs/images/CaptureNotificationMessageMultiple.PNG)
+![Multiple notifications example](docs/images/CaptureNotificationMessageMultiple.PNG)
 
 ### Don't like extension methods?
 
