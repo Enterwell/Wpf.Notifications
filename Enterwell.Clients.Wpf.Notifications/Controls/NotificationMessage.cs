@@ -257,10 +257,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <summary>
         /// The animatable element used for show/hide animations.
         /// </summary>
-        public UIElement AnimatableElement
-        {
-            get => this;
-        }
+        public UIElement AnimatableElement => this;
 
         /// <summary>
         /// The animation in.
@@ -327,7 +324,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             get
             {
                 var property = (DependencyProperty)GetValue(AnimationInDependencyPropProperty);
-                return property ?? UIElement.OpacityProperty;
+                return property ?? OpacityProperty;
             }
             set => SetValue(AnimationInDependencyPropProperty, value);
         }
@@ -340,7 +337,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             get
             {
                 var property = (DependencyProperty)GetValue(AnimationOutDependencyPropProperty);
-                return property ?? UIElement.OpacityProperty;
+                return property ?? OpacityProperty;
             }
             set => SetValue(AnimationOutDependencyPropProperty, value);
         }
@@ -376,7 +373,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
             DependencyProperty.Register("AdditionalContentRight", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
 
         /// <summary>
-        /// The additional content center property.
+        /// The additional content main property.
         /// </summary>
         public static readonly DependencyProperty AdditionalContentMainProperty =
             DependencyProperty.Register("AdditionalContentMain", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
@@ -400,8 +397,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         private static void AccentBrushPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            var @this = dependencyObject as NotificationMessage;
-            if (@this == null)
+            if (!(dependencyObject is NotificationMessage @this))
                 throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
 
             if (@this.BadgeAccentBrush == null)
@@ -446,8 +442,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         private static void BadgeTextPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            var @this = dependencyObject as NotificationMessage;
-            if (@this == null)
+            if (!(dependencyObject is NotificationMessage @this))
                 throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
 
             @this.BadgeVisibility = dependencyPropertyChangedEventArgs.NewValue == null
@@ -474,8 +469,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         private static void HeaderPropertyChangesCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            var @this = dependencyObject as NotificationMessage;
-            if (@this == null)
+            if (!(dependencyObject is NotificationMessage @this))
                 throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
 
             @this.HeaderVisibility = dependencyPropertyChangedEventArgs.NewValue == null
@@ -502,8 +496,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
         private static void MessagePropertyChangesCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            var @this = dependencyObject as NotificationMessage;
-            if (@this == null)
+            if (!(dependencyObject is NotificationMessage @this))
                 throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
 
             @this.MessageVisibility = dependencyPropertyChangedEventArgs.NewValue == null
@@ -576,7 +569,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         {
             this.Buttons = new ObservableCollection<object>();
 
-            //Setting the default text color, if not defined by user.
+            // Setting the default text color, if not defined by user.
             this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
         }
     }

@@ -116,6 +116,23 @@ manager.CreateMessage()
 
 The `WithOverlay` allows you to set custom overlay content. In this example a progress bar is placed on the bottom of notification control. Notice the `IsHitTextVisible` is set to `false` so that notification message buttons don't lose focus due to overlay control being over the bottom part of the buttons.
 
+### Custom additional content for notification
+
+```c#
+manager.CreateMessage()
+       .Accent("#F15B19")
+       .Background("#F15B19")
+       .HasHeader("Lost connection to server")
+       .HasMessage("Reconnecting...")
+       .WithAdditionalContent(ContentLocation.Main, new CheckBox
+	   {
+           Margin = new Thickness(16),
+		   HorizontalAlignment = HorizontalAlignment.Right,
+		   Content = "Don't show again"
+	   })
+       .Queue();
+```
+
 ### Multiple notification
 
 The `NotificationMessageContainer` has build-in support for showing multiple notifications at the same time. New notifications will show at the bottom of the message stack.

@@ -7,7 +7,7 @@ namespace Enterwell.Clients.Wpf.Notifications
     /// The animation properties for a notification message or some
     /// other item.
     /// </summary>
-    interface INotificationAnimation
+    public interface INotificationAnimation
     {
         /// <summary>
         /// Gets or sets whether the item animates in and out.

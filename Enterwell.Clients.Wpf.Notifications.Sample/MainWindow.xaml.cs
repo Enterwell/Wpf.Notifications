@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using Enterwell.Clients.Wpf.Notifications.Controls;
 
 namespace Enterwell.Clients.Wpf.Notifications.Sample
 {
@@ -92,16 +89,11 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
 
         private void ButtonBaseAdditionalContentOnClick(object sender, RoutedEventArgs e)
         {
-            Thickness margin = new Thickness();
-            margin.Top = margin.Bottom = margin.Left = margin.Right = 5;
             this.Manager
                 .CreateMessage()
                 .Accent("#1751C3")
-                .Animates(true)
-                .AnimationInDuration(0.5)
-                .AnimationOutDuration(0.5)
                 .Background("#333")
-                .Foreground("#000")
+                .Foreground("#333")
                 .HasBadge("Info")
                 .HasHeader("Header")
                 .HasMessage("This is the message!")
@@ -140,22 +132,11 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                     HorizontalAlignment = HorizontalAlignment.Stretch,
                     Background = Brushes.Orange
                 })
-                .WithAdditionalContent(ContentLocation.OverBadge, new Border
+                .WithAdditionalContent(ContentLocation.AboveBadge, new Border
                 {
                     Height = 40,
                     Width = 40,
                     Background = Brushes.Indigo
-                })
-                .WithOverlay(new ProgressBar
-                {
-                    VerticalAlignment = VerticalAlignment.Bottom,
-                    HorizontalAlignment = HorizontalAlignment.Stretch,
-                    Height = 3,
-                    BorderThickness = new Thickness(0),
-                    Foreground = new SolidColorBrush(Color.FromArgb(128, 255, 255, 255)),
-                    Background = Brushes.Transparent,
-                    IsIndeterminate = true,
-                    IsHitTestVisible = false
                 })
                 .Dismiss().WithButton("Dismiss", button => { })
                 .Queue();

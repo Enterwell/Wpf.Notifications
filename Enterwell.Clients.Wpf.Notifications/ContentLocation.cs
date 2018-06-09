@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Enterwell.Clients.Wpf.Notifications
+﻿namespace Enterwell.Clients.Wpf.Notifications
 {
+    /// <summary>
+    /// The additional content location.
+    /// </summary>
     public enum ContentLocation
     {
         Top,
@@ -13,6 +10,6 @@ namespace Enterwell.Clients.Wpf.Notifications
         Left,
         Right,
         Main,
-        OverBadge
+        AboveBadge
     }
 }

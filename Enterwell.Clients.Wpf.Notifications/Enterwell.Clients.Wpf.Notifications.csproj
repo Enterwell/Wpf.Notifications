@@ -53,7 +53,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActionExtensions.cs" />
     <Compile Include="ContentLocation.cs" />
     <Compile Include="Controls\NotificationMessage.cs" />
     <Compile Include="Controls\NotificationMessageButton.cs" />

@@ -3,7 +3,7 @@ using Enterwell.Clients.Wpf.Notifications.Controls;
 namespace Enterwell.Clients.Wpf.Notifications
 {
     /// <summary>
-    /// The noitification message factory.
+    /// The notification message factory.
     /// </summary>
     /// <seealso cref="INotificationMessageFactory" />
     public class NotificationMessageFactory : INotificationMessageFactory

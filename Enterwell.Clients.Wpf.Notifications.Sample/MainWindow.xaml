@@ -1,10 +1,10 @@
-﻿<controls1:MetroWindow
+﻿<mahapps:MetroWindow
     x:Class="Enterwell.Clients.Wpf.Notifications.Sample.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Enterwell.Clients.Wpf.Notifications.Controls;assembly=Enterwell.Clients.Wpf.Notifications"
-    xmlns:controls1="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mahapps="http://metro.mahapps.com/winfx/xaml/controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="900"
@@ -16,13 +16,16 @@
     WindowStartupLocation="CenterScreen"
     WindowTransitionsEnabled="False"
     mc:Ignorable="d">
-    <controls1:MetroWindow.Resources>
+    <mahapps:MetroWindow.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Enterwell.Clients.Wpf.Notifications;component/Themes/Generic.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </controls1:MetroWindow.Resources>
+    </mahapps:MetroWindow.Resources>
+    <mahapps:MetroWindow.WindowButtonCommands>
+        <mahapps:WindowButtonCommands Style="{DynamicResource MahApps.Metro.Styles.WindowButtonCommands.Win10}" />
+    </mahapps:MetroWindow.WindowButtonCommands>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -38,7 +41,7 @@
             <controls:NotificationMessageContainer Manager="{Binding Manager}" />
         </Border>
 
-        <StackPanel
+        <WrapPanel
             Grid.Row="1"
             Grid.Column="0"
             Grid.ColumnSpan="3"
@@ -95,7 +98,37 @@
                 Content="Additional Content Areas"
                 Style="{StaticResource NotificationMessageButtonStyle}" />
 
-        </StackPanel>
+        </WrapPanel>
     </Grid>
-</controls1:MetroWindow>
+</mahapps:MetroWindow>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
