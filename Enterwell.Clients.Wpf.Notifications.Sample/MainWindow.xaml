@@ -62,7 +62,7 @@
                 VerticalAlignment="Top"
                 Background="#E0A030"
                 Click="ButtonBaseWarningOnClick"
-                Content="Warning"
+                Content="Warning (with header)"
                 Style="{StaticResource NotificationMessageButtonStyle}" />
 
             <Button
@@ -83,6 +83,16 @@
                 Background="#1751C3"
                 Click="ButtonBaseInfoDelayOnClick"
                 Content="Animated info message with delayed dismiss (5s)"
+                Style="{StaticResource NotificationMessageButtonStyle}" />
+
+            <Button
+                Margin="8"
+                Padding="12,8"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#1751C3"
+                Click="ButtonBaseAdditionalContentOnClick"
+                Content="Additional Content Areas"
                 Style="{StaticResource NotificationMessageButtonStyle}" />
 
         </StackPanel>

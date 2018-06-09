@@ -270,6 +270,58 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
+        /// Sets the noitification message top additional content.
+        /// </summary>
+        /// <param name="builder">The builder.</param>
+        /// <param name="additionalContent">The additional content.</param>
+        /// <param name="contentLocation">The location of the content.</param>
+        /// <returns>Returns the notification message builder.</returns>
+        public static NotificationMessageBuilder WithAdditionalContent(
+            this NotificationMessageBuilder builder,
+            ContentLocation contentLocation,
+            object additionalContent)
+        {
+            switch (contentLocation)
+            {
+                case ContentLocation.Top:
+                    {
+                        builder.SetAdditionalContentTop(additionalContent);
+                        break;
+                    }
+                case ContentLocation.Bottom:
+                    {
+                        builder.SetAdditionalContentBottom(additionalContent);
+                        break;
+                    }
+                case ContentLocation.Left:
+                    {
+                        builder.SetAdditionalContentLeft(additionalContent);
+                        break;
+                    }
+                case ContentLocation.Right:
+                    {
+                        builder.SetAdditionalContentRight(additionalContent);
+                        break;
+                    }
+                case ContentLocation.Main:
+                    {
+                        builder.SetAdditionalContentMain(additionalContent);
+                        break;
+                    }
+                case ContentLocation.OverBadge:
+                    {
+                        builder.SetAdditionalContentOverBadge(additionalContent);
+                        break;
+                    }
+                default:
+                    { break; }
+            }
+            
+
+            return builder;
+        }
+        
+        /// <summary>
         /// Sets the foreground brush.
         /// </summary>
         /// <param name="builder">The builder.</param>

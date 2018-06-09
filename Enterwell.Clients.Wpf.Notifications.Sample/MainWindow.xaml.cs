@@ -52,6 +52,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                 .Accent("#E0A030")
                 .Background("#333")
                 .HasBadge("Warn")
+                .HasHeader("Error")
                 .HasMessage("Failed to retrieve data.")
                 .WithButton("Try again", button => { })
                 .Dismiss().WithButton("Ignore", button => { })
@@ -86,6 +87,63 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                 .Dismiss().WithButton("Update now", button => { })
                 .Dismiss().WithButton("Release notes", button => { })
                 .Dismiss().WithDelay(TimeSpan.FromSeconds(5))
+                .Queue();
+        }
+
+        private void ButtonBaseAdditionalContentOnClick(object sender, RoutedEventArgs e)
+        {
+            Thickness margin = new Thickness();
+            margin.Top = margin.Bottom = margin.Left = margin.Right = 5;
+            this.Manager
+                .CreateMessage()
+                .Accent("#1751C3")
+                .Animates(true)
+                .AnimationInDuration(0.5)
+                .AnimationOutDuration(0.5)
+                .Background("#333")
+                .HasBadge("Info")
+                .WithAdditionalContent(ContentLocation.Top, new Border
+                {
+                    Height = 25,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    Background = Brushes.Red
+                })
+                .WithAdditionalContent(ContentLocation.Bottom, new Border
+                {
+                    Height = 25,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    Background = Brushes.Green
+                })
+                .WithAdditionalContent(ContentLocation.Left, new Border
+                {
+                    Width = 25,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    Background = Brushes.Yellow
+                })
+                .WithAdditionalContent(ContentLocation.Right, new Border
+                {
+                    Width = 25,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    Background = Brushes.Violet
+                })
+                .WithAdditionalContent(ContentLocation.Main, new Border
+                {
+                    MinHeight = 50,
+                    VerticalAlignment = VerticalAlignment.Stretch,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    Background = Brushes.Orange
+                })
+                .WithAdditionalContent(ContentLocation.OverBadge, new Border
+                {
+                    Height = 40,
+                    Width = 40,
+                    Background = Brushes.Indigo
+                })
+                .Dismiss().WithButton("Dismiss", button => { })
                 .Queue();
         }
 

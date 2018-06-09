@@ -106,6 +106,54 @@ namespace Enterwell.Clients.Wpf.Notifications
         object OverlayContent { get; set; }
 
         /// <summary>
+        /// Gets or sets the content of the top additional content area.
+        /// </summary>
+        /// <value>
+        /// The content of the top additional content area.
+        /// </value>
+        object AdditionalContentTop { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content of the bottom additional content area.
+        /// </summary>
+        /// <value>
+        /// The additional content.
+        /// </value>
+        object AdditionalContentBottom { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content of the left additional content area.
+        /// </summary>
+        /// <value>
+        /// The additional content.
+        /// </value>
+        object AdditionalContentLeft { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content of the right additional content area.
+        /// </summary>
+        /// <value>
+        /// The additional content.
+        /// </value>
+        object AdditionalContentRight { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content of the center additional content area.
+        /// </summary>
+        /// <value>
+        /// The additional content.
+        /// </value>
+        object AdditionalContentMain { get; set; }
+
+        /// <summary>
+        /// Gets or sets the content of the over badge additional content area.
+        /// </summary>
+        /// <value>
+        /// The additional content.
+        /// </value>
+        object AdditionalContentOverBadge { get; set; }
+
+        /// <summary>
         /// Gets or sets the brush of the text.
         /// </summary>
         /// <value>
