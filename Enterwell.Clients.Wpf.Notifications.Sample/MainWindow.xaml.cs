@@ -101,7 +101,10 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                 .AnimationInDuration(0.5)
                 .AnimationOutDuration(0.5)
                 .Background("#333")
+                .Foreground("#000")
                 .HasBadge("Info")
+                .HasHeader("Header")
+                .HasMessage("This is the message!")
                 .WithAdditionalContent(ContentLocation.Top, new Border
                 {
                     Height = 25,
@@ -142,6 +145,17 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
                     Height = 40,
                     Width = 40,
                     Background = Brushes.Indigo
+                })
+                .WithOverlay(new ProgressBar
+                {
+                    VerticalAlignment = VerticalAlignment.Bottom,
+                    HorizontalAlignment = HorizontalAlignment.Stretch,
+                    Height = 3,
+                    BorderThickness = new Thickness(0),
+                    Foreground = new SolidColorBrush(Color.FromArgb(128, 255, 255, 255)),
+                    Background = Brushes.Transparent,
+                    IsIndeterminate = true,
+                    IsHitTestVisible = false
                 })
                 .Dismiss().WithButton("Dismiss", button => { })
                 .Queue();
