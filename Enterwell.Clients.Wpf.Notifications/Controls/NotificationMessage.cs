@@ -27,6 +27,78 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         }
 
         /// <summary>
+        /// Gets or sets the content of the top additional content area.
+        /// </summary>
+        /// <value>
+        /// The content of the top additional content area.
+        /// </value>
+        public object AdditionalContentTop
+        {
+            get => GetValue(AdditionalContentTopProperty);
+            set => SetValue(AdditionalContentTopProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets the content of the bottom additional content area.
+        /// </summary>
+        /// <value>
+        /// The content of the bottom additional content area.
+        /// </value>
+        public object AdditionalContentBottom
+        {
+            get => GetValue(AdditionalContentBottomProperty);
+            set => SetValue(AdditionalContentBottomProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets the content of the left additional content area.
+        /// </summary>
+        /// <value>
+        /// The content of the left additional content area.
+        /// </value>
+        public object AdditionalContentLeft
+        {
+            get => GetValue(AdditionalContentLeftProperty);
+            set => SetValue(AdditionalContentLeftProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets the content of the right additional content area.
+        /// </summary>
+        /// <value>
+        /// The content of the right additional content area.
+        /// </value>
+        public object AdditionalContentRight
+        {
+            get => GetValue(AdditionalContentRightProperty);
+            set => SetValue(AdditionalContentRightProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets the content of the center additional content area.
+        /// </summary>
+        /// <value>
+        /// The content of the center additional content area.
+        /// </value>
+        public object AdditionalContentMain
+        {
+            get => GetValue(AdditionalContentMainProperty);
+            set => SetValue(AdditionalContentMainProperty, value);
+        }
+
+        /// <summary>
+        /// Gets or sets the content of the top additional content area.
+        /// </summary>
+        /// <value>
+        /// The content of the top additional content area.
+        /// </value>
+        public object AdditionalContentOverBadge
+        {
+            get => GetValue(AdditionalContentOverBadgeProperty);
+            set => SetValue(AdditionalContentOverBadgeProperty, value);
+        }
+
+        /// <summary>
         /// Gets or sets the accent brush.
         /// </summary>
         /// <value>
@@ -278,6 +350,42 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </summary>
         public static readonly DependencyProperty OverlayContentProperty =
             DependencyProperty.Register("OverlayContent", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The additional content top property.
+        /// </summary>
+        public static readonly DependencyProperty AdditionalContentTopProperty =
+            DependencyProperty.Register("AdditionalContentTop", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The additional content bottom property.
+        /// </summary>
+        public static readonly DependencyProperty AdditionalContentBottomProperty =
+            DependencyProperty.Register("AdditionalContentBottom", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The additional content left property.
+        /// </summary>
+        public static readonly DependencyProperty AdditionalContentLeftProperty =
+            DependencyProperty.Register("AdditionalContentLeft", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The additional content right property.
+        /// </summary>
+        public static readonly DependencyProperty AdditionalContentRightProperty =
+            DependencyProperty.Register("AdditionalContentRight", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The additional content center property.
+        /// </summary>
+        public static readonly DependencyProperty AdditionalContentMainProperty =
+            DependencyProperty.Register("AdditionalContentMain", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
+
+        /// <summary>
+        /// The additional content over badge property.
+        /// </summary>
+        public static readonly DependencyProperty AdditionalContentOverBadgeProperty =
+            DependencyProperty.Register("AdditionalContentOverBadge", typeof(object), typeof(NotificationMessage), new PropertyMetadata(null));
 
         /// <summary>
         /// The accent brush property.

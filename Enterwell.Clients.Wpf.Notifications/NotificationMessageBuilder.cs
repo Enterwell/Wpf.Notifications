@@ -104,6 +104,60 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
+        /// Sets the top additional content.
+        /// </summary>
+        /// <param name="additionalContentTop">The additional content.</param>
+        public void SetAdditionalContentTop(object additionalContentTop)
+        {
+            this.Message.AdditionalContentTop = additionalContentTop;
+        }
+
+        /// <summary>
+        /// Sets the bottom additional content.
+        /// </summary>
+        /// <param name="additionalContentBottom">The additional content.</param>
+        public void SetAdditionalContentBottom(object additionalContentBottom)
+        {
+            this.Message.AdditionalContentBottom = additionalContentBottom;
+        }
+
+        /// <summary>
+        /// Sets the left additional content.
+        /// </summary>
+        /// <param name="additionalContentLeft">The additional content.</param>
+        public void SetAdditionalContentLeft(object additionalContentLeft)
+        {
+            this.Message.AdditionalContentLeft = additionalContentLeft;
+        }
+
+        /// <summary>
+        /// Sets the right additional content.
+        /// </summary>
+        /// <param name="additionalContentRight">The additional content.</param>
+        public void SetAdditionalContentRight(object additionalContentRight)
+        {
+            this.Message.AdditionalContentRight = additionalContentRight;
+        }
+
+        /// <summary>
+        /// Sets the center additional content.
+        /// </summary>
+        /// <param name="additionalContentMain">The additional content.</param>
+        public void SetAdditionalContentMain(object additionalContentMain)
+        {
+            this.Message.AdditionalContentMain = additionalContentMain;
+        }
+
+        /// <summary>
+        /// Sets the additional content over the badge.
+        /// </summary>
+        /// <param name="additionalContentOverBadge">The additional content.</param>
+        public void SetAdditionalContentOverBadge(object additionalContentOverBadge)
+        {
+            this.Message.AdditionalContentOverBadge = additionalContentOverBadge;
+        }
+
+        /// <summary>
         /// Sets the text brush.
         /// </summary>
         public void SetForeground(Brush brush)
