@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 
 namespace Enterwell.Clients.Wpf.Notifications.Controls
 {
@@ -19,8 +18,8 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </value>
         public INotificationMessageManager Manager
         {
-            get { return (INotificationMessageManager)GetValue(ManagerProperty); }
-            set { SetValue(ManagerProperty, value); }
+            get => (INotificationMessageManager)this.GetValue(ManagerProperty);
+            set => this.SetValue(ManagerProperty, value);
         }
 
         /// <summary>
@@ -34,11 +33,10 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </summary>
         /// <param name="dependencyObject">The dependency object.</param>
         /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
-        /// <exception cref="NullReferenceException">Dependency object is not of valid type " + nameof(NotificationMessageContainer)</exception>
+        /// <exception cref="NullReferenceException">Dependency object is not of valid type - expected NotificationMessageContainer.</exception>
         private static void ManagerPropertyChangedCallback(DependencyObject dependencyObject, DependencyPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
-            var @this = dependencyObject as NotificationMessageContainer;
-            if (@this == null)
+            if (!(dependencyObject is NotificationMessageContainer @this))
                 throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessageContainer));
             
             if (dependencyPropertyChangedEventArgs.OldValue is INotificationMessageManager oldManager)
@@ -80,12 +78,13 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            if (args.Message is INotificationAnimation)
+            if (args.Message is INotificationAnimation animatableMessage)
             {
-                var animatableMessage = args.Message as INotificationAnimation;
                 var animation = animatableMessage.AnimationOut;
-                if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
-                    && animation != null && animatableMessage.AnimationOutDependencyProperty != null)
+                if (animation != null && 
+                    animatableMessage.Animates && 
+                    animatableMessage.AnimatableElement != null && 
+                    animatableMessage.AnimationOutDependencyProperty != null)
                 {
                     animation.Completed += (s, a) => this.RemoveMessage(args.Message);
                     animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationOutDependencyProperty, animation);
@@ -103,7 +102,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
 
         private void RemoveMessage(INotificationMessage message)
         {
-            this.Items?.Remove(message);
+            this.Items.Remove(message);
         }
 
         /// <summary>
@@ -118,11 +117,10 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            this.Items?.Add(args.Message);
+            this.Items.Add(args.Message);
 
-            if (args.Message is INotificationAnimation)
+            if (args.Message is INotificationAnimation animatableMessage)
             {
-                var animatableMessage = args.Message as INotificationAnimation;
                 var animation = animatableMessage.AnimationIn;
                 if (animatableMessage.Animates && animatableMessage.AnimatableElement != null
                     && animation != null && animatableMessage.AnimationInDependencyProperty != null)

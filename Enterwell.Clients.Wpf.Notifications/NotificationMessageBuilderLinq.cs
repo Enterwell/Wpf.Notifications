@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+// ReSharper disable UnusedMember.Global
+// ReSharper disable RedundantEmptySwitchSection
 
 namespace Enterwell.Clients.Wpf.Notifications
 {
@@ -11,11 +13,11 @@ namespace Enterwell.Clients.Wpf.Notifications
     public static class NotificationMessageBuilderLinq
     {
         /// <summary>
-        /// Sets the notification mesage background.
+        /// Sets the notification message background.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="backgroundBrush">The background brush.</param>
-        /// <returns>Returns the noitificaiton message builder.</returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder Background(
             this NotificationMessageBuilder builder,
             Brush backgroundBrush)
@@ -26,11 +28,11 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Sets the notification mesage background.
+        /// Sets the notification message background.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="backgroundBrush">The background brush.</param>
-        /// <returns>Returns the noitificaiton message builder.</returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder Background(
             this NotificationMessageBuilder builder,
             string backgroundBrush)
@@ -42,11 +44,11 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Sets the notification mesage accent.
+        /// Sets the notification message accent.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="accentBrush">The accent brush.</param>
-        /// <returns>Returns the noitificaiton message builder.</returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder Accent(
             this NotificationMessageBuilder builder,
             Brush accentBrush)
@@ -57,11 +59,11 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Sets the notification mesage accent.
+        /// Sets the notification message accent.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="accentBrush">The accent brush.</param>
-        /// <returns>Returns the noitificaiton message builder.</returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder Accent(
             this NotificationMessageBuilder builder,
             string accentBrush)
@@ -134,10 +136,10 @@ namespace Enterwell.Clients.Wpf.Notifications
 
         /// <summary>
         /// Marks next button to be dismiss.
-        /// This button will dismiss the noitification message when clicked.
+        /// This button will dismiss the notification message when clicked.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <returns>Returns the notiification message builder.</returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder.DismissNotificationMessage Dismiss(
             this NotificationMessageBuilder builder)
         {
@@ -240,7 +242,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="builder">The builder.</param>
         /// <param name="callback">The callback.</param>
         /// <returns>
-        /// Returns the action that will call manager dismiss for noitification 
+        /// Returns the action that will call manager dismiss for notification 
         /// message in builder when button is clicked and then call the callback action.
         /// </returns>
         private static Action<INotificationMessageButton> DismissBefore(
@@ -255,7 +257,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Sets the noitification message overlay.
+        /// Sets the notification message overlay.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="overlay">The overlay.</param>
@@ -270,7 +272,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         }
 
         /// <summary>
-        /// Sets the noitification message top additional content.
+        /// Sets the notification message top additional content.
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="additionalContent">The additional content.</param>
@@ -308,7 +310,7 @@ namespace Enterwell.Clients.Wpf.Notifications
                         builder.SetAdditionalContentMain(additionalContent);
                         break;
                     }
-                case ContentLocation.OverBadge:
+                case ContentLocation.AboveBadge:
                     {
                         builder.SetAdditionalContentOverBadge(additionalContent);
                         break;
@@ -326,7 +328,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="foregroundBrush">The foreground brush.</param>
-        /// <returns>Returns the noitificaiton message builder.</returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder Foreground(
             this NotificationMessageBuilder builder,
             string foregroundBrush)
@@ -342,7 +344,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="animates">Whether or not the message should animate.</param>
-        /// <returns></returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder Animates(
             this NotificationMessageBuilder builder,
             bool animates)
@@ -357,7 +359,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="duration">How long the message should animate in (in seconds).</param>
-        /// <returns></returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder AnimationInDuration(
             this NotificationMessageBuilder builder,
             double duration)
@@ -372,7 +374,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// </summary>
         /// <param name="builder">The builder.</param>
         /// <param name="duration">How long the message should animate out (in seconds).</param>
-        /// <returns></returns>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder AnimationOutDuration(
             this NotificationMessageBuilder builder,
             double duration)
@@ -386,8 +388,8 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// Sets the animation in for the message.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="duration">The message animation in.</param>
-        /// <returns></returns>
+        /// <param name="animation">The animation time line.</param>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder AnimationIn(
             this NotificationMessageBuilder builder,
             AnimationTimeline animation)
@@ -401,8 +403,8 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// Sets the animation out for the message.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="duration">The message animation out.</param>
-        /// <returns></returns>
+        /// <param name="animation">The animation time line.</param>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder AnimationOut(
             this NotificationMessageBuilder builder,
             AnimationTimeline animation)
@@ -416,8 +418,8 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// Sets the animation in dependency property for the message.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="duration">The animation in dependency property.</param>
-        /// <returns></returns>
+        /// <param name="property">The animation in dependency property.</param>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder AnimationInDependencyProperty(
             this NotificationMessageBuilder builder,
             DependencyProperty property)
@@ -431,8 +433,8 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// Sets the animation out dependency property for the message.
         /// </summary>
         /// <param name="builder">The builder.</param>
-        /// <param name="duration">The animation out dependency property.</param>
-        /// <returns></returns>
+        /// <param name="property">The animation out dependency property.</param>
+        /// <returns>Returns the notification message builder.</returns>
         public static NotificationMessageBuilder AnimationOutDependencyProperty(
             this NotificationMessageBuilder builder,
             DependencyProperty property)

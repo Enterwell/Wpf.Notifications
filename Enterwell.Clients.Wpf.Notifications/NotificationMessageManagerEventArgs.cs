@@ -3,7 +3,7 @@
 namespace Enterwell.Clients.Wpf.Notifications
 {
     /// <summary>
-    /// The notificaiton message manager event arguments.
+    /// The notification message manager event arguments.
     /// </summary>
     /// <seealso cref="EventArgs" />
     public class NotificationMessageManagerEventArgs : EventArgs
