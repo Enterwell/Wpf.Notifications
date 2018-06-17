@@ -15,14 +15,14 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
         /// </summary>
         public MainWindow()
         {
-            this.InitializeComponent();
-            this.DataContext = this;
+            InitializeComponent();
+            DataContext = this;
         }
 
 
         private void ButtonBaseErrorOnClick(object sender, RoutedEventArgs e)
         {
-            this.Manager
+            Manager
                 .CreateMessage()
                 .Accent("#F15B19")
                 .Background("#F15B19")
@@ -44,7 +44,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
 
         private void ButtonBaseWarningOnClick(object sender, RoutedEventArgs e)
         {
-            this.Manager
+            Manager
                 .CreateMessage()
                 .Accent("#E0A030")
                 .Background("#333")
@@ -58,7 +58,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
 
         private void ButtonBaseInfoOnClick(object sender, RoutedEventArgs e)
         {
-            this.Manager
+            Manager
                 .CreateMessage()
                 .Accent("#1751C3")
                 .Background("#333")
@@ -72,7 +72,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
 
         private void ButtonBaseInfoDelayOnClick(object sender, RoutedEventArgs e)
         {
-            this.Manager
+            Manager
                 .CreateMessage()
                 .Accent("#1751C3")
                 .Animates(true)
@@ -89,7 +89,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
 
         private void ButtonBaseAdditionalContentOnClick(object sender, RoutedEventArgs e)
         {
-            this.Manager
+            Manager
                 .CreateMessage()
                 .Accent("#1751C3")
                 .Background("#333")

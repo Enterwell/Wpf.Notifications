@@ -43,7 +43,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="header">The header.</param>
         public void SetHeader(string header)
         {
-            this.Message.Header = header;
+            Message.Header = header;
         }
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="message">The message.</param>
         public void SetMessage(string message)
         {
-            this.Message.Message = message;
+            Message.Message = message;
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Enterwell.Clients.Wpf.Notifications
             if (button == null)
                 throw new ArgumentNullException(nameof(button));
 
-            this.Message.Buttons.Add(button);
+            Message.Buttons.Add(button);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="badgeText">The badge text.</param>
         public void SetBadge(string badgeText)
         {
-            this.Message.BadgeText = badgeText;
+            Message.BadgeText = badgeText;
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="accentBrush">The accent brush.</param>
         public void SetAccent(Brush accentBrush)
         {
-            this.Message.AccentBrush = accentBrush;
+            Message.AccentBrush = accentBrush;
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="backgroundBrush">The background brush.</param>
         public void SetBackground(Brush backgroundBrush)
         {
-            this.Message.Background = backgroundBrush;
+            Message.Background = backgroundBrush;
         }
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="overlay">The overlay.</param>
         public void SetOverlay(object overlay)
         {
-            this.Message.OverlayContent = overlay;
+            Message.OverlayContent = overlay;
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="additionalContentTop">The additional content.</param>
         public void SetAdditionalContentTop(object additionalContentTop)
         {
-            this.Message.AdditionalContentTop = additionalContentTop;
+            Message.AdditionalContentTop = additionalContentTop;
         }
 
         /// <summary>
@@ -118,7 +118,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="additionalContentBottom">The additional content.</param>
         public void SetAdditionalContentBottom(object additionalContentBottom)
         {
-            this.Message.AdditionalContentBottom = additionalContentBottom;
+            Message.AdditionalContentBottom = additionalContentBottom;
         }
 
         /// <summary>
@@ -127,7 +127,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="additionalContentLeft">The additional content.</param>
         public void SetAdditionalContentLeft(object additionalContentLeft)
         {
-            this.Message.AdditionalContentLeft = additionalContentLeft;
+            Message.AdditionalContentLeft = additionalContentLeft;
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="additionalContentRight">The additional content.</param>
         public void SetAdditionalContentRight(object additionalContentRight)
         {
-            this.Message.AdditionalContentRight = additionalContentRight;
+            Message.AdditionalContentRight = additionalContentRight;
         }
 
         /// <summary>
@@ -145,7 +145,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="additionalContentMain">The additional content.</param>
         public void SetAdditionalContentMain(object additionalContentMain)
         {
-            this.Message.AdditionalContentMain = additionalContentMain;
+            Message.AdditionalContentMain = additionalContentMain;
         }
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="additionalContentOverBadge">The additional content.</param>
         public void SetAdditionalContentOverBadge(object additionalContentOverBadge)
         {
-            this.Message.AdditionalContentOverBadge = additionalContentOverBadge;
+            Message.AdditionalContentOverBadge = additionalContentOverBadge;
         }
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// </summary>
         public void SetForeground(Brush brush)
         {
-            this.Message.Foreground = brush;
+            Message.Foreground = brush;
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="animates"></param>
         public void SetAnimates(bool animates)
         {
-            if (this.Message is INotificationAnimation animation)
+            if (Message is INotificationAnimation animation)
             {
                 animation.Animates = animates;
             }
@@ -183,7 +183,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="duration">The in animation duration (in seconds).</param>
         public void SetAnimationInDuration(double duration)
         {
-            if (this.Message is INotificationAnimation animation)
+            if (Message is INotificationAnimation animation)
             {
                 animation.AnimationInDuration = duration;
             }
@@ -195,7 +195,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="duration">The out animation duration (in seconds).</param>
         public void SetAnimationOutDuration(double duration)
         {
-            if (this.Message is INotificationAnimation animation)
+            if (Message is INotificationAnimation animation)
             {
                 animation.AnimationOutDuration = duration;
             }
@@ -207,7 +207,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="animation"></param>
         public void SetAnimationIn(AnimationTimeline animation)
         {
-            if (this.Message is INotificationAnimation notificationAnimation)
+            if (Message is INotificationAnimation notificationAnimation)
             {
                 notificationAnimation.AnimationIn = animation;
             }
@@ -219,7 +219,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="animation"></param>
         public void SetAnimationOut(AnimationTimeline animation)
         {
-            if (this.Message is INotificationAnimation notificationAnimation)
+            if (Message is INotificationAnimation notificationAnimation)
             {
                 notificationAnimation.AnimationOut = animation;
             }
@@ -231,7 +231,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="property"></param>
         public void SetAnimationInDependencyProperty(DependencyProperty property)
         {
-            if (this.Message is INotificationAnimation animation)
+            if (Message is INotificationAnimation animation)
             {
                 animation.AnimationInDependencyProperty = property;
             }
@@ -243,7 +243,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="property"></param>
         public void SetAnimationOutDependencyProperty(DependencyProperty property)
         {
-            if (this.Message is INotificationAnimation animation)
+            if (Message is INotificationAnimation animation)
             {
                 animation.AnimationOutDependencyProperty = property;
             }
@@ -255,9 +255,9 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <returns>Returns the queued message.</returns>
         public INotificationMessage Queue()
         {
-            this.Manager.Queue(this.Message);
+            Manager.Queue(Message);
 
-            return this.Message;
+            return Message;
         }
 
         /// <summary>
@@ -267,7 +267,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="action">The action.</param>
         public void Delay(int delayMilliseconds, Action<INotificationMessage> action)
         {
-            this.Delay(TimeSpan.FromMilliseconds(delayMilliseconds), action);
+            Delay(TimeSpan.FromMilliseconds(delayMilliseconds), action);
         }
 
         /// <summary>
@@ -278,7 +278,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         public void Delay(TimeSpan delay, Action<INotificationMessage> action)
         {
             Task.Delay(delay).ContinueWith(
-                context => action(this.Message),
+                context => action(Message),
                 TaskScheduler.FromCurrentSynchronizationContext());
         }
 
@@ -294,7 +294,7 @@ namespace Enterwell.Clients.Wpf.Notifications
             /// <exception cref="ArgumentNullException">builder</exception>
             public DismissNotificationMessage(NotificationMessageBuilder builder)
             {
-                this.Builder = builder ?? throw new ArgumentNullException(nameof(builder));
+                Builder = builder ?? throw new ArgumentNullException(nameof(builder));
             }
 
             /// <summary>
