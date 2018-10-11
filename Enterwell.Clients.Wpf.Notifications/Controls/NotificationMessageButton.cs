@@ -25,7 +25,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <param name="content">The content.</param>
         public NotificationMessageButton(object content)
         {
-            this.Content = content;
+            Content = content;
         }
 
 
@@ -35,7 +35,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         protected override void OnClick()
         {
             base.OnClick();
-            this.Callback?.Invoke(this);
+            Callback?.Invoke(this);
         }
 
         /// <summary>

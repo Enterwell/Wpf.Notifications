@@ -18,8 +18,8 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </value>
         public INotificationMessageManager Manager
         {
-            get => (INotificationMessageManager)this.GetValue(ManagerProperty);
-            set => this.SetValue(ManagerProperty, value);
+            get => (INotificationMessageManager)GetValue(ManagerProperty);
+            set => SetValue(ManagerProperty, value);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <exception cref="InvalidOperationException">Can't use both ItemsSource and Items collection at the same time.</exception>
         private void ManagerOnOnMessageDismissed(object sender, NotificationMessageManagerEventArgs args)
         {
-            if (this.ItemsSource != null)
+            if (ItemsSource != null)
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
@@ -86,23 +86,23 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     animatableMessage.AnimatableElement != null && 
                     animatableMessage.AnimationOutDependencyProperty != null)
                 {
-                    animation.Completed += (s, a) => this.RemoveMessage(args.Message);
+                    animation.Completed += (s, a) => RemoveMessage(args.Message);
                     animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationOutDependencyProperty, animation);
                 }
                 else
                 {
-                    this.RemoveMessage(args.Message);
+                    RemoveMessage(args.Message);
                 }
             }
             else
             {
-                this.RemoveMessage(args.Message);
+                RemoveMessage(args.Message);
             }
         }
 
         private void RemoveMessage(INotificationMessage message)
         {
-            this.Items.Remove(message);
+            Items.Remove(message);
         }
 
         /// <summary>
@@ -113,11 +113,11 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// <exception cref="InvalidOperationException">Can't use both ItemsSource and Items collection at the same time.</exception>
         private void ManagerOnOnMessageQueued(object sender, NotificationMessageManagerEventArgs args)
         {
-            if (this.ItemsSource != null)
+            if (ItemsSource != null)
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            this.Items.Add(args.Message);
+            Items.Add(args.Message);
 
             if (args.Message is INotificationAnimation animatableMessage)
             {

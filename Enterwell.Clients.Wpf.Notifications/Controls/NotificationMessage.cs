@@ -272,18 +272,16 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     animation.Duration = TimeSpan.FromSeconds(AnimationInDuration);
                     return animation;
                 }
-                else
+
+                var doubleAnimation = new DoubleAnimation
                 {
-                    var doubleAnimation = new DoubleAnimation
-                    {
-                        From = 0,
-                        To = 1,
-                        BeginTime = TimeSpan.FromSeconds(0),
-                        Duration = TimeSpan.FromSeconds(AnimationInDuration),
-                        FillBehavior = FillBehavior.HoldEnd
-                    };
-                    return doubleAnimation;
-                }
+                    From = 0,
+                    To = 1,
+                    BeginTime = TimeSpan.FromSeconds(0),
+                    Duration = TimeSpan.FromSeconds(AnimationInDuration),
+                    FillBehavior = FillBehavior.HoldEnd
+                };
+                return doubleAnimation;
             }
             set => SetValue(AnimationInProperty, value);
         }
@@ -301,17 +299,15 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                     animation.Duration = TimeSpan.FromSeconds(AnimationOutDuration);
                     return animation;
                 }
-                else
+
+                return new DoubleAnimation
                 {
-                    return new DoubleAnimation
-                    {
-                        From = 1,
-                        To = 0,
-                        BeginTime = TimeSpan.FromSeconds(0),
-                        Duration = TimeSpan.FromSeconds(AnimationOutDuration),
-                        FillBehavior = FillBehavior.HoldEnd
-                    };
-                }
+                    From = 1,
+                    To = 0,
+                    BeginTime = TimeSpan.FromSeconds(0),
+                    Duration = TimeSpan.FromSeconds(AnimationOutDuration),
+                    FillBehavior = FillBehavior.HoldEnd
+                };
             }
             set => SetValue(AnimationOutProperty, value);
         }
@@ -567,10 +563,10 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         /// </summary>
         public NotificationMessage()
         {
-            this.Buttons = new ObservableCollection<object>();
+            Buttons = new ObservableCollection<object>();
 
             // Setting the default text color, if not defined by user.
-            this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
+            Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
         }
     }
 }

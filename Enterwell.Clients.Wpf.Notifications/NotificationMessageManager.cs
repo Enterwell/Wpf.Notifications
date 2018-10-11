@@ -8,7 +8,7 @@ namespace Enterwell.Clients.Wpf.Notifications
     /// <seealso cref="INotificationMessageManager" />
     public class NotificationMessageManager : INotificationMessageManager
     {
-        private readonly List<INotificationMessage> queuedMessages = new List<INotificationMessage>();
+        private readonly List<INotificationMessage> _queuedMessages = new List<INotificationMessage>();
 
 
         /// <summary>
@@ -37,12 +37,12 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="message">The message.</param>
         public void Queue(INotificationMessage message)
         {
-            if (message == null || this.queuedMessages.Contains(message))
+            if (message == null || _queuedMessages.Contains(message))
                 return;
 
-            this.queuedMessages.Add(message);
+            _queuedMessages.Add(message);
 
-            this.TriggerMessageQueued(message);
+            TriggerMessageQueued(message);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="message">The message.</param>
         private void TriggerMessageQueued(INotificationMessage message)
         {
-            this.OnMessageQueued?.Invoke(this, new NotificationMessageManagerEventArgs(message));
+            OnMessageQueued?.Invoke(this, new NotificationMessageManagerEventArgs(message));
         }
 
         /// <summary>
@@ -61,12 +61,12 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="message">The message.</param>
         public void Dismiss(INotificationMessage message)
         {
-            if (message == null || !this.queuedMessages.Contains(message))
+            if (message == null || !_queuedMessages.Contains(message))
                 return;
 
-            this.queuedMessages.Remove(message);
+            _queuedMessages.Remove(message);
 
-            this.TriggerMessageDismissed(message);
+            TriggerMessageDismissed(message);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="message">The message.</param>
         private void TriggerMessageDismissed(INotificationMessage message)
         {
-            this.OnMessageDismissed?.Invoke(this, new NotificationMessageManagerEventArgs(message));
+            OnMessageDismissed?.Invoke(this, new NotificationMessageManagerEventArgs(message));
         }
     }
 }

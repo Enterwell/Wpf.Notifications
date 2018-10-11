@@ -23,7 +23,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         /// <param name="message">The message.</param>
         public NotificationMessageManagerEventArgs(INotificationMessage message)
         {
-            this.Message = message;
+            Message = message;
         }
     }
 }
