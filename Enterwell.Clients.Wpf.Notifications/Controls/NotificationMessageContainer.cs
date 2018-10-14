@@ -38,10 +38,10 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
         {
             if (!(dependencyObject is NotificationMessageContainer @this))
                 throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessageContainer));
-            
+
             if (dependencyPropertyChangedEventArgs.OldValue is INotificationMessageManager oldManager)
                 @this.DetachManagerEvents(oldManager);
-            
+
             if (dependencyPropertyChangedEventArgs.NewValue is INotificationMessageManager newManager)
                 @this.AttachManagerEvents(newManager);
         }
@@ -78,26 +78,7 @@ namespace Enterwell.Clients.Wpf.Notifications.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");
 
-            if (args.Message is INotificationAnimation animatableMessage)
-            {
-                var animation = animatableMessage.AnimationOut;
-                if (animation != null && 
-                    animatableMessage.Animates && 
-                    animatableMessage.AnimatableElement != null && 
-                    animatableMessage.AnimationOutDependencyProperty != null)
-                {
-                    animation.Completed += (s, a) => this.RemoveMessage(args.Message);
-                    animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationOutDependencyProperty, animation);
-                }
-                else
-                {
-                    this.RemoveMessage(args.Message);
-                }
-            }
-            else
-            {
-                this.RemoveMessage(args.Message);
-            }
+            this.RemoveMessage(args.Message);
         }
 
         private void RemoveMessage(INotificationMessage message)

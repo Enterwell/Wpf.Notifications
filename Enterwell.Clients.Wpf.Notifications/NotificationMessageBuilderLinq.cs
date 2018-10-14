@@ -231,28 +231,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         {
             return call =>
             {
-                if (builder.Message is INotificationAnimation animatableMessage)
-                {
-                    var animation = animatableMessage.AnimationOut;
-                    if (animation != null && 
-                        animatableMessage.Animates && 
-                        animatableMessage.AnimatableElement != null && 
-                        animatableMessage.AnimationOutDependencyProperty != null)
-                    {
-                        animation.Completed += (s, a) => 
-                        {
-                            builder.Manager.Dismiss(builder.Message);
-                        };
-                    }
-                    else
-                    {
-                        builder.Manager.Dismiss(builder.Message);
-                    }
-                }
-                else
-                {
-                    builder.Manager.Dismiss(builder.Message);
-                }
+                builder.Manager.Dismiss(builder.Message);
                 callback?.Invoke(builder.Message);
             };
         }
@@ -272,28 +251,7 @@ namespace Enterwell.Clients.Wpf.Notifications
         {
             return button =>
             {
-                if (builder.Message is INotificationAnimation animatableMessage)
-                {
-                    var animation = animatableMessage.AnimationOut;
-                    if (animation != null && 
-                        animatableMessage.Animates && 
-                        animatableMessage.AnimatableElement != null && 
-                        animatableMessage.AnimationOutDependencyProperty != null)
-                    {
-                        animation.Completed += (s, a) => 
-                        {
-                            builder.Manager.Dismiss(builder.Message);
-                        };
-                    }
-                    else
-                    {
-                        builder.Manager.Dismiss(builder.Message);
-                    }
-                }
-                else
-                {
-                    builder.Manager.Dismiss(builder.Message);
-                }
+                builder.Manager.Dismiss(builder.Message);
                 callback?.Invoke(button);
             };
         }
@@ -360,11 +318,11 @@ namespace Enterwell.Clients.Wpf.Notifications
                 default:
                     { break; }
             }
-            
+
 
             return builder;
         }
-        
+
         /// <summary>
         /// Sets the foreground brush.
         /// </summary>

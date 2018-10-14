@@ -66,7 +66,29 @@ namespace Enterwell.Clients.Wpf.Notifications
 
             this.queuedMessages.Remove(message);
 
-            this.TriggerMessageDismissed(message);
+            if (message is INotificationAnimation animatableMessage)
+            {
+                var animation = animatableMessage.AnimationOut;
+                if (animation != null &&
+                    animatableMessage.Animates &&
+                    animatableMessage.AnimatableElement != null &&
+                    animatableMessage.AnimationOutDependencyProperty != null)
+                {
+                    animation.Completed += (s, a) =>
+                    {
+                        this.TriggerMessageDismissed(message);
+                    };
+                    animatableMessage.AnimatableElement.BeginAnimation(animatableMessage.AnimationOutDependencyProperty, animation);
+                }
+                else
+                {
+                    this.TriggerMessageDismissed(message);
+                }
+            }
+            else
+            {
+                this.TriggerMessageDismissed(message);
+            }
         }
 
         /// <summary>
