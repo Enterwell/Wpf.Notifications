@@ -202,3 +202,7 @@ this.Manager.Queue(new NotificationMessage
 ```
 
 ### XAML only? Supported too. You get the idea.
+
+## Development
+
+Pack NuGet: `nuget pack -Prop Configuration=Release`

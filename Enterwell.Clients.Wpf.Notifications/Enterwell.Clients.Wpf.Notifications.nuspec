@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/Enterwell/Wpf.Notifications</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Fixed message header foreground not set by `SetForeground` method call.</releaseNotes>
+    <releaseNotes>Fixed messages would not dismiss</releaseNotes>
     <copyright>Copyright (c) Enterwell d.o.o. 2017-2018</copyright>
     <tags>wpf notifications</tags>
   </metadata>

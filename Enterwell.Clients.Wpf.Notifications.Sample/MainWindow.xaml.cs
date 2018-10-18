@@ -17,13 +17,8 @@ namespace Enterwell.Clients.Wpf.Notifications.Sample
         {
             this.InitializeComponent();
             this.DataContext = this;
-            Manager.OnMessageDismissed += Manager_OnMessageDismissed;
         }
-
-        private void Manager_OnMessageDismissed(object sender, NotificationMessageManagerEventArgs args)
-        {
-        }
-
+        
         private void ButtonBaseErrorOnClick(object sender, RoutedEventArgs e)
         {
             this.Manager
