@@ -1,94 +1,37 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{CFA27B27-9231-4F6D-804A-C0AE33FA5237}</ProjectGuid>
-    <OutputType>library</OutputType>
-    <RootNamespace>Enterwell.Clients.Wpf.Notifications</RootNamespace>
-    <AssemblyName>Enterwell.Clients.Wpf.Notifications</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>net451</TargetFramework>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
+    <AssemblyTitle>Enterwell.Clients.Wpf.Notifications</AssemblyTitle>
+    <Company>Enterwell d.o.o.</Company>
+    <Product>Enterwell.Clients.Wpf.Notifications</Product>
+    <Description>Enterwell WPF Notifications library</Description>
+    <Copyright>Copyright (c) Enterwell d.o.o. 2017-2018</Copyright>
+    <Version>1.4.2.0</Version>
+    <AssemblyVersion>1.4.2.0</AssemblyVersion>
+    <FileVersion>1.4.2.0</FileVersion>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <UseWPF>true</UseWPF>
+    <Authors>Enterwell d.o.o.</Authors>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/Enterwell/Wpf.Notifications/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Enterwell/Wpf.Notifications</PackageProjectUrl>
+    <PackageReleaseNotes>Fixed messages would not dismiss</PackageReleaseNotes>
+    <PackageTags>wpf notifications</PackageTags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xaml">
-      <RequiredTargetFramework>4.0</RequiredTargetFramework>
-    </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Include="Themes\Generic.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="ContentLocation.cs" />
-    <Compile Include="Controls\NotificationMessage.cs" />
-    <Compile Include="Controls\NotificationMessageButton.cs" />
-    <Compile Include="Controls\NotificationMessageContainer.cs" />
-    <Compile Include="INotificationMessage.cs" />
-    <Compile Include="INotificationAnimation.cs" />
-    <Compile Include="INotificationMessageButton.cs" />
-    <Compile Include="INotificationMessageFactory.cs" />
-    <Compile Include="INotificationMessageManager.cs" />
-    <Compile Include="NotificationMessageBuilder.cs" />
-    <Compile Include="NotificationMessageBuilderLinq.cs" />
-    <Compile Include="NotificationMessageFactory.cs" />
-    <Compile Include="NotificationMessageManager.cs" />
-    <Compile Include="NotificationMessageManagerEventArgs.cs" />
-    <Compile Include="NotificationMessageManagerEventHandler.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
